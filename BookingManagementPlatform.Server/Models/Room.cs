@@ -21,6 +21,12 @@ public partial class Room
 
     public string? ServiceImage { get; set; }
 
+    public string? Location { get; set; }
+
+    public int? Capacity { get; set; }
+
+    public virtual ICollection<Atmosphere> Atmospheres { get; set; } = new List<Atmosphere>();
+
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     public virtual RoomsCategory? Category { get; set; }

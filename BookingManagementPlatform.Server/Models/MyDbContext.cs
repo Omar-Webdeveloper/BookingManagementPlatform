@@ -15,9 +15,13 @@ public partial class MyDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Atmosphere> Atmospheres { get; set; }
+
     public virtual DbSet<Booking> Bookings { get; set; }
 
     public virtual DbSet<ContactUsMessage> ContactUsMessages { get; set; }
+
+    public virtual DbSet<Review> Reviews { get; set; }
 
     public virtual DbSet<Room> Rooms { get; set; }
 
@@ -33,16 +37,51 @@ public partial class MyDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Atmosphere>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Atmosphe__3213E83F859EFEB9");
+
+            entity.ToTable("Atmosphere");
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("id");
+            entity.Property(e => e.Lighting)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("lighting");
+            entity.Property(e => e.MusicLevel)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("music_level");
+            entity.Property(e => e.RoomId).HasColumnName("room_id");
+            entity.Property(e => e.Seating)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("seating");
+            entity.Property(e => e.ViewLook)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("view_Look");
+
+            entity.HasOne(d => d.Room).WithMany(p => p.Atmospheres)
+                .HasForeignKey(d => d.RoomId)
+                .HasConstraintName("FK__Atmospher__room___6A30C649");
+        });
+
         modelBuilder.Entity<Booking>(entity =>
         {
             entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AEDB7EFBA87");
 
-            entity.Property(e => e.BookingTime).HasColumnName("BookingTIME");
+            entity.Property(e => e.BookingEndDate).HasColumnName("Booking_end_date");
+            entity.Property(e => e.BookingEndTime).HasColumnName("Booking_end_time");
+            entity.Property(e => e.BookingStartDate).HasColumnName("Booking_start_date");
+            entity.Property(e => e.BookingStartTime).HasColumnName("Booking_start_time");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
-            entity.Property(e => e.PaymentMethod).HasMaxLength(50);
-            entity.Property(e => e.Review).HasMaxLength(255);
+            entity.Property(e => e.EndDate).HasColumnName("end_date");
+            entity.Property(e => e.StartDate).HasColumnName("start_date");
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
                 .HasDefaultValue("Pending");
@@ -71,14 +110,40 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Title).HasMaxLength(500);
         });
 
+        modelBuilder.Entity<Review>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Review__3213E83F85968C7B");
+
+            entity.ToTable("Review");
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("id");
+            entity.Property(e => e.BookingId).HasColumnName("booking_id");
+            entity.Property(e => e.Rating).HasColumnName("rating");
+            entity.Property(e => e.Review1)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("review");
+
+            entity.HasOne(d => d.Booking).WithMany(p => p.Reviews)
+                .HasForeignKey(d => d.BookingId)
+                .HasConstraintName("FK__Review__booking___6754599E");
+        });
+
         modelBuilder.Entity<Room>(entity =>
         {
             entity.HasKey(e => e.RoomId).HasName("PK__Rooms__3286393921934DC9");
 
+            entity.Property(e => e.Capacity).HasColumnName("capacity");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.Description).HasMaxLength(255);
+            entity.Property(e => e.Location)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("location");
             entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.ServiceImage)
                 .HasMaxLength(200)
