@@ -1,5 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+using BookingManagementPlatform.Server.Models;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+// Add services to the container.
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 // Add services to the container.
 
 builder.Services.AddControllers();

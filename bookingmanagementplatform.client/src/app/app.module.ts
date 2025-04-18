@@ -11,6 +11,10 @@ import { MohammadTestCompComponent } from './Mohammad/mohammad-test-comp/mohamma
 import { OmarTestCompComponent } from './Omar/omar-test-comp/omar-test-comp.component';
 import { RahafTestCompComponent } from './Rahaf/rahaf-test-comp/rahaf-test-comp.component';
 import { TuqaTestCompComponent } from './Tuqa/tuqa-test-comp/tuqa-test-comp.component';
+import { NavabrComponent } from './Omar/navabr/navabr.component';
+import { FooterComponent } from './Omar/footer/footer.component';
+import { HomepagecontentComponent } from './Omar/homepagecontent/homepagecontent.component';
+import { AboutuscontentComponent } from './Omar/aboutuscontent/aboutuscontent.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { TuqaTestCompComponent } from './Tuqa/tuqa-test-comp/tuqa-test-comp.comp
     MohammadTestCompComponent,
     OmarTestCompComponent,
     RahafTestCompComponent,
-    TuqaTestCompComponent
+    TuqaTestCompComponent,
+    NavabrComponent,
+    FooterComponent,
+    HomepagecontentComponent,
+    AboutuscontentComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
