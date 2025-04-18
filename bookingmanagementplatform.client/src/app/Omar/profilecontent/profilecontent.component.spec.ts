@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RahafTestCompComponent } from './rahaf-test-comp.component';
+import { ProfilecontentComponent } from './profilecontent.component';
 
-describe('RahafTestCompComponent', () => {
-  let component: RahafTestCompComponent;
-  let fixture: ComponentFixture<RahafTestCompComponent>;
+describe('ProfilecontentComponent', () => {
+  let component: ProfilecontentComponent;
+  let fixture: ComponentFixture<ProfilecontentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RahafTestCompComponent]
+      declarations: [ProfilecontentComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RahafTestCompComponent);
+    fixture = TestBed.createComponent(ProfilecontentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
