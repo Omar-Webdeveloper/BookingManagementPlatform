@@ -9,6 +9,10 @@ import { ProfilecontentComponent } from './Omar/profilecontent/profilecontent.co
 import { EditprofilecontentComponent } from './Omar/editprofilecontent/editprofilecontent.component';
 import { ResetpasswordcontentComponent } from './Rahaf/resetpasswordcontent/resetpasswordcontent.component';
 import { BookinghistorycontectComponent } from './Hala/bookinghistorycontect/bookinghistorycontect.component';
+import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categories/show-all-rooms-categories.component';
+import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
+import { BookingformcontentComponent } from './Hala/bookingformcontent/bookingformcontent.component';
+import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/booking-paymentcontent.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomepagecontentComponent },
@@ -20,7 +24,10 @@ const routes: Routes = [
   { path: 'EditProfile', component: EditprofilecontentComponent },
   { path: 'ResetPassword', component: ResetpasswordcontentComponent },
   { path: 'BookingHistory', component: BookinghistorycontectComponent },
-  { path: 'BookingForm', component: BookinghistorycontectComponent },
+  { path: 'BookingForm', component: BookingformcontentComponent },
+  { path: 'BookingPayment', component: BookingPaymentcontentComponent },
+  { path: 'AllRoomsCategories', component: ShowAllRoomsCategoriesComponent },
+  { path: 'AllRoomsForOneCategory', component: ShowAllRoomsForOneCategoryComponent },
   { path: 'AdminDashBoard', component: AboutuscontentComponent }
 ];
 

@@ -19,6 +19,10 @@ import { EditprofilecontentComponent } from './Omar/editprofilecontent/editprofi
 import { ResetpasswordcontentComponent } from './Rahaf/resetpasswordcontent/resetpasswordcontent.component';
 import { BookinghistorycontectComponent } from './Hala/bookinghistorycontect/bookinghistorycontect.component';
 import { BookingformcontentComponent } from './Hala/bookingformcontent/bookingformcontent.component';
+import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/booking-paymentcontent.component';
+import { ReviewRatingcontentComponent } from './Jana/review-ratingcontent/review-ratingcontent.component';
+import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categories/show-all-rooms-categories.component';
+import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { BookingformcontentComponent } from './Hala/bookingformcontent/bookingfo
     EditprofilecontentComponent,
     ResetpasswordcontentComponent,
     BookinghistorycontectComponent,
-    BookingformcontentComponent
+    BookingformcontentComponent,
+    BookingPaymentcontentComponent,
+    ReviewRatingcontentComponent,
+    ShowAllRoomsCategoriesComponent,
+    ShowAllRoomsForOneCategoryComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

@@ -1,0 +1,37 @@
+<!-- Checkout / Payment Form -->
+<div class="container my-5">
+  <div class="bg-light p-4 shadow rounded">
+    <h4 class="mb-4">Checkout & Payment</h4>
+    <form>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="bookingId">Booking ID</label>
+          <input type="number" class="form-control" id="bookingId" placeholder="Enter Booking ID" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="paymentMethod">Payment Method</label>
+          <select class="form-control" id="paymentMethod" required>
+            <option selected disabled>Select Payment Method</option>
+            <option>Cash</option>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" maxlength="16" class="form-control" id="cardNumber" placeholder="Enter Card Number">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="cvc">CVC</label>
+          <input type="text" maxlength="4" class="form-control" id="cvc" placeholder="e.g., 123">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="expiryDate">Expiry Date</label>
+          <input type="date" class="form-control" id="expiryDate">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Pay Now</button>
+    </form>
+  </div>
+</div>
