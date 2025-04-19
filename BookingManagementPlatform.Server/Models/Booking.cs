@@ -29,6 +29,8 @@ public partial class Booking
 
     public TimeOnly? BookingEndTime { get; set; }
 
+    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
+
     public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
 
     public virtual Room Room { get; set; } = null!;

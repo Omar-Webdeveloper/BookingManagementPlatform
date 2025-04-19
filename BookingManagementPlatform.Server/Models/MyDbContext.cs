@@ -21,6 +21,8 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<ContactUsMessage> ContactUsMessages { get; set; }
 
+    public virtual DbSet<Payment> Payments { get; set; }
+
     public virtual DbSet<Review> Reviews { get; set; }
 
     public virtual DbSet<Room> Rooms { get; set; }
@@ -39,13 +41,11 @@ public partial class MyDbContext : DbContext
     {
         modelBuilder.Entity<Atmosphere>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Atmosphe__3213E83F859EFEB9");
+            entity.HasKey(e => e.Id).HasName("PK__Atmosphe__3213E83F2F31C9F6");
 
             entity.ToTable("Atmosphere");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Lighting)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -66,7 +66,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.Room).WithMany(p => p.Atmospheres)
                 .HasForeignKey(d => d.RoomId)
-                .HasConstraintName("FK__Atmospher__room___6A30C649");
+                .HasConstraintName("FK__Atmospher__room___6FE99F9F");
         });
 
         modelBuilder.Entity<Booking>(entity =>
@@ -110,15 +110,40 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Title).HasMaxLength(500);
         });
 
+        modelBuilder.Entity<Payment>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3213E83FEED5EC2F");
+
+            entity.ToTable("Payment");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.BookingId).HasColumnName("booking_id");
+            entity.Property(e => e.Cardnumber)
+                .HasMaxLength(16)
+                .IsUnicode(false)
+                .HasColumnName("cardnumber");
+            entity.Property(e => e.Cvc)
+                .HasMaxLength(4)
+                .IsUnicode(false)
+                .HasColumnName("CVC");
+            entity.Property(e => e.PaymentMethod)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("payment_method");
+
+            entity.HasOne(d => d.Booking).WithMany(p => p.Payments)
+                .HasForeignKey(d => d.BookingId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Payment__booking__72C60C4A");
+        });
+
         modelBuilder.Entity<Review>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Review__3213E83F85968C7B");
+            entity.HasKey(e => e.Id).HasName("PK__Review__3213E83FEBA4E5E4");
 
             entity.ToTable("Review");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BookingId).HasColumnName("booking_id");
             entity.Property(e => e.Rating).HasColumnName("rating");
             entity.Property(e => e.Review1)
@@ -128,7 +153,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.Booking).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.BookingId)
-                .HasConstraintName("FK__Review__booking___6754599E");
+                .HasConstraintName("FK__Review__booking___6D0D32F4");
         });
 
         modelBuilder.Entity<Room>(entity =>
