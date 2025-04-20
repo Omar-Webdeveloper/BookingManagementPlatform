@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="page-title">Messages</h1>
+  <div class="message-list">
+    <div class="message-card" *ngFor="let item of contactMessageData">
+      <div class="card-header">
+        <h3>{{item.title}}</h3>
+      </div>
+      <div class="card-body">
+        <div class="client-info">
+          <div class="client-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="client-details">
+            <div class="client-name">{{item.clinetName}}</div>
+            <div class="client-email">{{item.email}}</div>
+          </div>
+        </div>
+        <div class="message-content">
+          <div class="message-title">
+            <i class="fas fa-envelope"></i>
+            <span>Message:</span>
+          </div>
+          <div class="message-text">
+            {{item.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

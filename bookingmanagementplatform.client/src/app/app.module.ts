@@ -23,6 +23,9 @@ import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/bo
 import { ReviewRatingcontentComponent } from './Jana/review-ratingcontent/review-ratingcontent.component';
 import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categories/show-all-rooms-categories.component';
 import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
+import { AdminDashBoredComponent } from './Admin/admin-dash-bored/admin-dash-bored.component';
+import { RequstBookingComponent } from './Admin/requst-booking/requst-booking.component';
+import { ContactMessageComponent } from './Admin/contact-message/contact-message.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-o
     BookingPaymentcontentComponent,
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
-    ShowAllRoomsForOneCategoryComponent
+    ShowAllRoomsForOneCategoryComponent,
+    AdminDashBoredComponent,
+    RequstBookingComponent,
+    ContactMessageComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

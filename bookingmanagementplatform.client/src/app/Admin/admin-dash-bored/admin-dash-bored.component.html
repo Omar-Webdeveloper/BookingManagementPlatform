@@ -1,0 +1,115 @@
+
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+  <!-- Mobile overlay -->
+  <label for="menu-toggle" class="overlay"></label>
+
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <h2>Admin<span>Panel</span></h2>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a routerLink="/AdminDashBoard" class="active">
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+
+
+
+        <li>
+          <a routerLink="/AdminDashBoard/RequstBooking">
+            <span>RequstBooking</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/AdminDashBoard/Contact">
+            <span>Contact</span>
+          </a>
+        </li>
+
+
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+  </div>
+
+    <!--<div>-->
+      <!--<div class="header">
+    <label for="menu-toggle" class="menu-toggle-label">
+      <i class="fas fa-bars"></i>
+    </label>
+    <div class="user-info">
+      <img src="/api/placeholder/40/40" alt="User">
+      <span>John Smith</span>
+    </div>
+  </div>-->
+      <!-- Dashboard content -->
+      <!--<h1>Dashboard</h1>
+  <p>Welcome to your dashboard. Here's a quick overview of your data.</p>-->
+      <!-- Stats cards -->
+      <!--<div class="row">
+    <div class="col">
+      <div class="card stats-card">
+        <div class="stats-icon blue">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stats-info">
+          <h3>2,543</h3>
+          <p>Total Users</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card stats-card">
+        <div class="stats-icon green">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="stats-info">
+          <h3>6,258</h3>
+          <p>Total Orders</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card stats-card">
+        <div class="stats-icon orange">
+          <i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="stats-info">
+          <h3>$12,280</h3>
+          <p>Total Revenue</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card stats-card">
+        <div class="stats-icon purple">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="stats-info">
+          <h3>4.8</h3>
+          <p>Average Rating</p>
+        </div>
+      </div>
+    </div>
+  </div>-->
+      <!-- Additional content -->
+      <!--<div class="card">
+      <div class="card-title">Recent Activities</div>
+      <div>
+        <p>5 new users have logged in during the past hour.</p>
+        <p>12 new orders were processed with a total value of $2,500.</p>
+        <p>3 new products were added to the store.</p>
+      </div>
+    </div>
+  </div>-->
+    <!--</div>-->
+

@@ -10,6 +10,9 @@ builder.Services.AddScoped<IOmarClass,OmarClass>();
 // Add services to the container.
 
 
+builder.Services.AddScoped<IANASDataSER, ANASDataSER>();
+
+
 //CORS
 builder.Services.AddCors(
 

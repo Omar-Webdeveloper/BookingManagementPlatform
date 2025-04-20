@@ -7,11 +7,11 @@ public partial class RoomsCategory
 {
     public int CategoryId { get; set; }
 
-    public string CategoryName { get; set; } = null!;
+    public string? CategoryName { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
+    public string? Image { get; set; }
+
+    public string? Description { get; set; }
 
     public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
-
-    public virtual ICollection<Staff> Staff { get; set; } = new List<Staff>();
 }

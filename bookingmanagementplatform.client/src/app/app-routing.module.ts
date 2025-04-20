@@ -13,9 +13,12 @@ import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categorie
 import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
 import { BookingformcontentComponent } from './Hala/bookingformcontent/bookingformcontent.component';
 import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/booking-paymentcontent.component';
+import { ContactMessageComponent } from './Admin/contact-message/contact-message.component';
+import { RequstBookingComponent } from './Admin/requst-booking/requst-booking.component';
+import { AdminDashBoredComponent } from './Admin/admin-dash-bored/admin-dash-bored.component';
 
 const routes: Routes = [
-  { path: 'Home', component: HomepagecontentComponent },
+  { path: '', component: HomepagecontentComponent },
   { path: 'About_US', component: AboutuscontentComponent },
   { path: 'Contact_US', component: ContactUScontentComponent },
   { path: 'Login', component: LogincontentComponent },
@@ -28,7 +31,13 @@ const routes: Routes = [
   { path: 'BookingPayment', component: BookingPaymentcontentComponent },
   { path: 'AllRoomsCategories', component: ShowAllRoomsCategoriesComponent },
   { path: 'AllRoomsForOneCategory', component: ShowAllRoomsForOneCategoryComponent },
-  { path: 'AdminDashBoard', component: AboutuscontentComponent }
+  
+  {
+    path: 'AdminDashBoard', component: AdminDashBoredComponent, children: [
+      { path: 'Contact', component: ContactMessageComponent },
+      { path: 'RequstBooking', component: RequstBookingComponent }
+  ] }
+
 ];
 
 @NgModule({
