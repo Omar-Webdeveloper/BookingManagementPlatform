@@ -33,7 +33,7 @@ namespace BookingManagementPlatform.Server.UserServicee
                 FullName = dto.FullName,
                 Email = dto.Email,
                 PasswordHash = hashedPwd,
-                //PhoneNumber = dto.PhoneNumber
+                PhoneNumber = dto.PhoneNumber
             };
 
             _context.Users.Add(user);

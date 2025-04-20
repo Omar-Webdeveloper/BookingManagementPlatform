@@ -7,6 +7,9 @@ import { SocialAuthService, GoogleLoginProvider, SocialUser } from '@abacritt/an
 export class AuthService {
   private url = 'https://localhost:7297/api/User';
 
+
+
+
   constructor(private http: HttpClient) { }
 
   register(data: any): Observable<any> {

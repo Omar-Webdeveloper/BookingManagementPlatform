@@ -15,6 +15,8 @@ export class RegistercontentComponent {
     userData.append('FullName', user.FullName);
     userData.append('Email', user.Email);
     userData.append('PasswordHash', user.PasswordHash);
+    userData.append('PhoneNumber', user.PhoneNumber);
+
 
     this.authService.register(userData).subscribe({
       next: res => {
