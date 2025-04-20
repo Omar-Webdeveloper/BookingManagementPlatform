@@ -2,6 +2,7 @@ using BookingManagementPlatform.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using BookingManagementPlatform.Server.DataServicee;
 using BookingManagementPlatform.Server.IDataSerivcee;
+using BookingManagementPlatform.Server.UserServicee;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<MyDbContext>(options =>
@@ -30,10 +31,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IUserServicee, UserService>();
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

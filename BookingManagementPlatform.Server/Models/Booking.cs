@@ -17,10 +17,6 @@ public partial class Booking
 
     public DateTime? CreatedAt { get; set; }
 
-    public DateOnly? StartDate { get; set; }
-
-    public TimeOnly? EndDate { get; set; }
-
     public DateOnly? BookingStartDate { get; set; }
 
     public TimeOnly? BookingStartTime { get; set; }
@@ -28,6 +24,8 @@ public partial class Booking
     public DateOnly? BookingEndDate { get; set; }
 
     public TimeOnly? BookingEndTime { get; set; }
+
+    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
 

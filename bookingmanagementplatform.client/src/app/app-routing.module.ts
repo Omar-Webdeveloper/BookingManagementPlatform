@@ -13,22 +13,32 @@ import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categorie
 import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
 import { BookingformcontentComponent } from './Hala/bookingformcontent/bookingformcontent.component';
 import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/booking-paymentcontent.component';
+import { RegisterComponent } from './Rahaf/register/register.component';
+import { LoginComponent } from './Rahaf/login/login.component';
+import { ResetPasswordComponent } from './Rahaf/reset-password/reset-password.component';
+import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
+import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomepagecontentComponent },
   { path: 'About_US', component: AboutuscontentComponent },
   { path: 'Contact_US', component: ContactUScontentComponent },
-  { path: 'Login', component: LogincontentComponent },
-  { path: 'Register', component: RegistercontentComponent },
+  { path: 'Loginnn', component: LogincontentComponent },
+  { path: 'Registerrrr', component: RegistercontentComponent },
   { path: 'Profile', component: ProfilecontentComponent },
   { path: 'EditProfile', component: EditprofilecontentComponent },
-  { path: 'ResetPassword', component: ResetpasswordcontentComponent },
+  { path: 'ResetPassworddddd', component: ResetpasswordcontentComponent },
   { path: 'BookingHistory', component: BookinghistorycontectComponent },
   { path: 'BookingForm', component: BookingformcontentComponent },
   { path: 'BookingPayment', component: BookingPaymentcontentComponent },
   { path: 'AllRoomsCategories', component: ShowAllRoomsCategoriesComponent },
   { path: 'AllRoomsForOneCategory', component: ShowAllRoomsForOneCategoryComponent },
-  { path: 'AdminDashBoard', component: AboutuscontentComponent }
+  { path: 'AdminDashBoard', component: AboutuscontentComponent },
+  { path: 'Register', component: RegisterComponent },
+  { path: 'Login', component: LoginComponent },
+  { path: 'ResetPassword', component: ResetPasswordComponent },
+  { path: 'VerifyCode', component: VerifyCodeComponent },
+  { path: 'ForgotPassword', component: ForgotPasswordComponent }
 ];
 
 @NgModule({
