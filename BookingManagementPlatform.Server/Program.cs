@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 builder.Services.AddScoped<IOmarClass,OmarClass>();
+builder.Services.AddScoped<IDataServiceJana, DataServiceJana>();
 // Add services to the container.
 
 
