@@ -1,3 +1,8 @@
+using BookingManagementPlatform.Server.ToqaIDataService;
+using BookingManagementPlatform.Server.ToqaDataService;
+using BookingManagementPlatform.Server.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,30 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+
+builder.Services.AddScoped<TIDataService, TDataService>();
+
+
+
+builder.Services.AddCors(
+    options => options.AddPolicy(
+        "Develop", options => 
+        {
+            options.AllowAnyOrigin(); 
+            options.AllowAnyMethod();
+            options.AllowAnyHeader();
+        }
+        )
+    );
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    });
+
 
 var app = builder.Build();
 
@@ -20,7 +49,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("Develop");
 app.UseAuthorization();
 
 app.MapControllers();
