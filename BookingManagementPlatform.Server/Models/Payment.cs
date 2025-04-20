@@ -7,7 +7,7 @@ public partial class Payment
 {
     public int Id { get; set; }
 
-    public int BookingId { get; set; }
+    public int? BookingId { get; set; }
 
     public string? PaymentMethod { get; set; }
 
@@ -17,5 +17,7 @@ public partial class Payment
 
     public DateOnly? ExpiryDate { get; set; }
 
-    public virtual Booking Booking { get; set; } = null!;
+    public int? Amount { get; set; }
+
+    public virtual Booking? Booking { get; set; }
 }
