@@ -54,11 +54,14 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
     ShowAllRoomsForOneCategoryComponent,
+<<<<<<< HEAD
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
     VerifyCodeComponent,
     ResetPasswordComponent
+=======
+>>>>>>> 5124f836084c0546db92249c038d1bbb4a1b39d1
   ],
   imports: [
     BrowserModule, HttpClientModule,

@@ -7,13 +7,11 @@ public partial class ContactUsMessage
 {
     public int Id { get; set; }
 
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; }
 
-    public string Message { get; set; } = null!;
+    public string? Message { get; set; }
 
-    public string ClinetName { get; set; } = null!;
+    public string? ClinetName { get; set; }
 
-    public string Email { get; set; } = null!;
-
-    public DateTime? CreatedAt { get; set; }
+    public string? Email { get; set; }
 }

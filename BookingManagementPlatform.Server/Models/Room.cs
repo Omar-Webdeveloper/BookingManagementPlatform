@@ -7,17 +7,15 @@ public partial class Room
 {
     public int RoomId { get; set; }
 
-    public string ServiceName { get; set; } = null!;
+    public string? ServiceName { get; set; }
 
     public string? Description { get; set; }
 
-    public decimal Price { get; set; }
+    public int? Price { get; set; }
 
-    public int Duration { get; set; }
+    public int? Duration { get; set; }
 
     public int? CategoryId { get; set; }
-
-    public DateTime? CreatedAt { get; set; }
 
     public string? ServiceImage { get; set; }
 
@@ -25,7 +23,13 @@ public partial class Room
 
     public int? Capacity { get; set; }
 
-    public virtual ICollection<Atmosphere> Atmospheres { get; set; } = new List<Atmosphere>();
+    public string? Lighting { get; set; }
+
+    public string? ViewLook { get; set; }
+
+    public string? MusicLevel { get; set; }
+
+    public string? Seating { get; set; }
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
