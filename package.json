@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@abacritt/angularx-social-login": "^2.3.0"
+    "sweetalert2": "^11.19.1"
   }
 }

@@ -50,12 +50,12 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.Room).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.RoomId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__Bookings__RoomId__4316F928");
+                .HasConstraintName("FK__Bookings__RoomId__52593CB8");
 
             entity.HasOne(d => d.User).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__Bookings__UserId__4222D4EF");
+                .HasConstraintName("FK__Bookings__UserId__5165187F");
         });
 
         modelBuilder.Entity<ContactUsMessage>(entity =>
@@ -113,7 +113,7 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.Booking).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.BookingId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__Review__booking___45F365D3");
+                .HasConstraintName("FK__Review__booking___5535A963");
         });
 
         modelBuilder.Entity<Room>(entity =>
@@ -150,7 +150,7 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.Category).WithMany(p => p.Rooms)
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__Rooms__CategoryI__3C69FB99");
+                .HasConstraintName("FK__Rooms__CategoryI__4E88ABD4");
         });
 
         modelBuilder.Entity<RoomsCategory>(entity =>

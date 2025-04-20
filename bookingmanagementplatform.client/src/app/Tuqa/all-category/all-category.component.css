@@ -1,0 +1,37 @@
+.category-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  background-color: #ffffff;
+}
+
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+.category-img {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+.custom-btn {
+  background-color: #6C63FF;
+  color: #fff;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+  .custom-btn:hover {
+    background-color: #5548c8;
+  }
