@@ -38,6 +38,7 @@ public partial class MyDbContext : DbContext
         modelBuilder.Entity<Booking>(entity =>
         {
             entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AED7790FEF1");
+            entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AEDEFCC6E42");
 
             entity.Property(e => e.BookingEndDate).HasColumnName("Booking_end_date");
             entity.Property(e => e.BookingEndTime).HasColumnName("Booking_end_time");
@@ -61,6 +62,7 @@ public partial class MyDbContext : DbContext
         modelBuilder.Entity<ContactUsMessage>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC07F1E23D75");
+            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC077C3D891A");
 
             entity.Property(e => e.ClinetName).HasMaxLength(500);
             entity.Property(e => e.Email).HasMaxLength(500);
@@ -96,9 +98,38 @@ public partial class MyDbContext : DbContext
                 .HasConstraintName("FK__Payment__booking__4BAC3F29");
         });
 
+        modelBuilder.Entity<Payment>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3213E83F0433EAEE");
+
+            entity.ToTable("Payment");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Amount).HasColumnName("amount");
+            entity.Property(e => e.BookingId).HasColumnName("booking_id");
+            entity.Property(e => e.Cardnumber)
+                .HasMaxLength(16)
+                .IsUnicode(false)
+                .HasColumnName("cardnumber");
+            entity.Property(e => e.Cvc)
+                .HasMaxLength(4)
+                .IsUnicode(false)
+                .HasColumnName("CVC");
+            entity.Property(e => e.PaymentMethod)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("payment_method");
+
+            entity.HasOne(d => d.Booking).WithMany(p => p.Payments)
+                .HasForeignKey(d => d.BookingId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK__Payment__booking__4BAC3F29");
+        });
+
         modelBuilder.Entity<Review>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Review__3213E83FF6D911D2");
+            entity.HasKey(e => e.Id).HasName("PK__Review__3213E83F75C26FD1");
 
             entity.ToTable("Review");
 
@@ -119,6 +150,7 @@ public partial class MyDbContext : DbContext
         modelBuilder.Entity<Room>(entity =>
         {
             entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939BCBEA189");
+            entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939393388E4");
 
             entity.Property(e => e.Capacity).HasColumnName("capacity");
             entity.Property(e => e.Description).HasMaxLength(255);
@@ -156,6 +188,7 @@ public partial class MyDbContext : DbContext
         modelBuilder.Entity<RoomsCategory>(entity =>
         {
             entity.HasKey(e => e.CategoryId).HasName("PK__RoomsCat__19093A0BDCB850A2");
+            entity.HasKey(e => e.CategoryId).HasName("PK__RoomsCat__19093A0B267578C1");
 
             entity.Property(e => e.CategoryName).HasMaxLength(100);
             entity.Property(e => e.Description)
@@ -170,8 +203,10 @@ public partial class MyDbContext : DbContext
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4CD5B5CD68");
+            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C236ABE94");
 
             entity.HasIndex(e => e.Email, "UQ__Users__A9D105349BF132FD").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534671698E0").IsUnique();
 
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.FullName).HasMaxLength(100);

@@ -14,16 +14,18 @@ import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-o
 import { BookingformcontentComponent } from './Hala/bookingformcontent/bookingformcontent.component';
 import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/booking-paymentcontent.component';
 import { RoomDetailsComponent } from './Jana/room-details/room-details.component';
+import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
+import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
 
 const routes: Routes = [
-  { path: 'Home', component: HomepagecontentComponent },
+  { path: '', component: HomepagecontentComponent },
   { path: 'About_US', component: AboutuscontentComponent },
   { path: 'Contact_US', component: ContactUScontentComponent },
-  { path: 'Login', component: LogincontentComponent },
-  { path: 'Register', component: RegistercontentComponent },
+  { path: 'Loginnn', component: LogincontentComponent },
+  { path: 'Registerrrr', component: RegistercontentComponent },
   { path: 'Profile', component: ProfilecontentComponent },
   { path: 'EditProfile', component: EditprofilecontentComponent },
-  { path: 'ResetPassword', component: ResetpasswordcontentComponent },
+  { path: 'ResetPassworddddd', component: ResetpasswordcontentComponent },
   { path: 'BookingHistory', component: BookinghistorycontectComponent },
   { path: 'BookingForm', component: BookingformcontentComponent },
   { path: 'BookingPayment', component: BookingPaymentcontentComponent },
@@ -31,6 +33,10 @@ const routes: Routes = [
   { path: 'AllRoomsForOneCategory', component: ShowAllRoomsForOneCategoryComponent },
   { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: "selectedRoom/:id", component: RoomDetailsComponent },
+  { path: 'AdminDashBoard', component: AboutuscontentComponent },
+  { path: 'VerifyCode', component: VerifyCodeComponent },
+  { path: 'ForgotPassword', component: ForgotPasswordComponent }
+
 ];
 
 @NgModule({

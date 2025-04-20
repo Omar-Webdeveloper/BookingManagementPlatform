@@ -23,6 +23,11 @@ import { ReviewRatingcontentComponent } from './Jana/review-ratingcontent/review
 import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categories/show-all-rooms-categories.component';
 import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
 import { RoomDetailsComponent } from './Jana/room-details/room-details.component';
+import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
+import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -46,12 +51,31 @@ import { RoomDetailsComponent } from './Jana/room-details/room-details.component
     ShowAllRoomsCategoriesComponent,
     ShowAllRoomsForOneCategoryComponent,
     RoomDetailsComponent
+    ShowAllRoomsForOneCategoryComponent,
+    ForgotPasswordComponent,
+    VerifyCodeComponent,
+
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule,
+    ReactiveFormsModule
+  //  , SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('820022799549-l2ltlkctk8so89mifm9i1i38j5b5emqb.apps.googleusercontent.com')
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
