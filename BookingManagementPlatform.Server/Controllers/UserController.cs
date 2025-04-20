@@ -1,5 +1,6 @@
 ﻿using BookingManagementPlatform.Server.DTOs;
 using BookingManagementPlatform.Server.IDataSerivcee;
+using BookingManagementPlatform.Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +30,7 @@ namespace BookingManagementPlatform.Server.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var token = await _dataService.LoginAsync(dto);
+
             //return token != null ? Ok(token) : Unauthorized("Invalid credentials");
             return token != null ? Ok() : Unauthorized();
         }

@@ -44,9 +44,13 @@ namespace BookingManagementPlatform.Server.UserServicee
         public async Task<string?> LoginAsync(LoginDto dto)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+
             if (user == null || !BCrypt.Net.BCrypt.Verify(dto.PasswordHash, user.PasswordHash))
                 return null;
+            // Save user ID in the session
+            _httpContextAccessor.HttpContext.Session.SetInt32("UserID", user.UserId);
 
+            var userId = _httpContextAccessor.HttpContext.Session.GetInt32("UserID");
             return "valid-login";
         }
 
