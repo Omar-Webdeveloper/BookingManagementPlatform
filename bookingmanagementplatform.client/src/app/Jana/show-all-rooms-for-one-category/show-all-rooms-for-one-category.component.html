@@ -1,0 +1,68 @@
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
+  <div class="container text-center py-5">
+    <h1 class="text-white display-1">Study Rooms</h1>
+   
+    <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
+      
+    </div>
+  </div>
+</div>
+<!-- Header End -->
+<!-- Courses Start -->
+<div class="container-fluid py-5">
+  <div class="container py-5">
+    <div class="row mx-0 justify-content-center">
+      <div class="col-lg-8">
+        <div class="row mb-4">
+          <div class="col-md-6 mx-auto">
+            <select class="form-control" [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()" style=" margin-left: -61%; width: 69%;">
+              <option [value]="0">All Categories</option>
+              <option *ngFor="let cat of categories" [value]="cat.categoryId">{{ cat.categoryName }}</option>
+            </select>
+            <div *ngIf="rooms.length === 0" class="text-center text-muted mt-4">
+              <i class="fa fa-info-circle"></i> No rooms available in this category.
+            </div>
+          </div>
+          <div class="col-md-6 mx-auto">
+            <select class="form-control" [(ngModel)]="selectedSortOption" (change)="sortRoomsByPrice()" style=" margin-left: 92%; width: 69%;">
+              <option value="">Sort by price</option>
+              <option value="lowToHigh">From Low to High</option>
+              <option value="highToLow">From High to Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-4 col-md-6 pb-4" *ngFor="let room of rooms">
+        <!-- كرت الغرفة -->
+        <a class="courses-list-item position-relative d-block overflow-hidden mb-2" [routerLink]="['/selectedRoom', room.roomId]">
+          <img class="img-fluid" [src]="room.serviceImage" alt="Room Image">
+          <div class="courses-text">
+            <h4 class="text-center text-white px-3">
+              {{ room.serviceName }}
+            </h4>
+            <div class="border-top w-100 mt-3">
+              <div class="d-flex flex-column p-4 text-white">
+                <span><i class="fa fa-map-marker-alt mr-2"></i> {{ room.location }}</span>
+                <span><i class="fa fa-users mr-2"></i> {{ room.capacity }} Person</span>
+                <span><i class="fa fa-dollar-sign mr-2"></i>{{ room.price }} JD</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- الرسالة بتنعرض إذا ما في غرف -->
+     <!--<div *ngIf="rooms.length === 0" class="text-center text-muted mt-4">
+  <i class="fa fa-info-circle"></i> No rooms available in this category.
+</div>-->
+    </div>
+  </div>
+</div>
+<!-- Courses End -->
+
+
+

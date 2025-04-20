@@ -1,0 +1,50 @@
+<!-- Booking Form -->
+<div class="container my-5">
+  <div class="bg-light p-4 shadow rounded">
+    <h4 class="mb-4">Book a Room</h4>
+    <form>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="roomId">Room ID</label>
+          <input type="number" class="form-control" id="roomId" placeholder="Enter Room ID" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="bookingDate">Booking Date</label>
+          <input type="date" class="form-control" id="bookingDate" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="bookingTime">Booking Time</label>
+          <input type="time" class="form-control" id="bookingTime" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="status">Status</label>
+          <select class="form-control" id="status">
+            <option selected>Pending</option>
+            <option>Confirmed</option>
+            <option>Cancelled</option>
+          </select>
+        </div>
+
+        <!-- New Booking Times -->
+        <div class="col-md-6 mb-3">
+          <label for="startDate">Start Date</label>
+          <input type="date" class="form-control" id="startDate" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="startTime">Start Time</label>
+          <input type="time" class="form-control" id="startTime" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="endDate">End Date</label>
+          <input type="date" class="form-control" id="endDate" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="endTime">End Time</label>
+          <input type="time" class="form-control" id="endTime" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary"><a routerLink="/BookingPayment">CheckOut</a></button>
+    </form>
+  </div>
+</div>

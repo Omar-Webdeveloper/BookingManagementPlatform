@@ -37,9 +37,20 @@
               }
             ],
             "styles": [
+              "src/assets/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css",
+              "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
+              "src/assets/css/style.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/code.jquery.com/jquery-3.4.1.min.js",
+              "src/assets/stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js",
+              "src/assets/lib/easing/easing.min.js",
+              "src/assets/lib/waypoints/waypoints.min.js",
+              "src/assets/lib/counterup/counterup.min.js",
+              "src/assets/lib/owlcarousel/owl.carousel.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,9 +110,20 @@
               }
             ],
             "styles": [
+              "src/assets/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css",
+              "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
+              "src/assets/css/style.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/code.jquery.com/jquery-3.4.1.min.js",
+              "src/assets/stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js",
+              "src/assets/lib/easing/easing.min.js",
+              "src/assets/lib/waypoints/waypoints.min.js",
+              "src/assets/lib/counterup/counterup.min.js",
+              "src/assets/lib/owlcarousel/owl.carousel.min.js",
+              "src/assets/js/main.js"
+            ],
             "karmaConfig": "karma.conf.js"
           }
         }

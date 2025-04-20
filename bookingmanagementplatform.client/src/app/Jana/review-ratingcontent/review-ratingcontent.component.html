@@ -1,0 +1,53 @@
+<div class="container py-4">
+  <div class="col-lg-8 mx-auto">
+    <div class="bg-white p-4 shadow rounded">
+      <h4 class="mb-4 text-center">Submit Your Review</h4>
+      <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
+
+        <!-- Booking ID (can be hidden if auto-filled) -->
+        <div class="mb-3">
+          <label for="booking_id" class="form-label">Booking ID</label>
+          <input type="number"
+                 class="form-control"
+                 id="booking_id"
+                 name="booking_id"
+                 [(ngModel)]="review.booking_id"
+                 required
+                 readonly>
+        </div>
+
+        <!-- Rating selection -->
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating</label>
+          <select class="form-select"
+                  id="rating"
+                  name="rating"
+                  [(ngModel)]="review.rating"
+                  required>
+            <option disabled selected value="">Select rating</option>
+            <option *ngFor="let r of [1,2,3,4,5]" [value]="r">{{r}} Star{{r > 1 ? 's' : ''}}</option>
+          </select>
+        </div>
+
+        <!-- Review textarea -->
+        <div class="mb-3">
+          <label for="review" class="form-label">Your Review</label>
+          <textarea class="form-control"
+                    id="review"
+                    name="review"
+                    [(ngModel)]="review.review"
+                    rows="4"
+                    placeholder="Write your feedback..."
+                    required></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary px-4" [disabled]="!reviewForm.form.valid">
+            Submit Review
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

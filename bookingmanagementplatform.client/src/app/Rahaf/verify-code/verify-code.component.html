@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Verify Reset Code</h2>
+  <form [formGroup]="verifyCodeForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="code">Enter the reset code</label>
+      <input type="text"
+             id="code"
+             formControlName="code"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': verifyCodeForm.controls['code'].invalid && verifyCodeForm.controls['code'].touched }" />
+      <div *ngIf="verifyCodeForm.controls['code'].invalid && verifyCodeForm.controls['code'].touched" class="invalid-feedback">
+        Please enter a valid code (6 digits).
+      </div>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <button type="submit" class="btn btn-primary" [disabled]="verifyCodeForm.invalid">Verify Code</button>
+  </form>
+</div>
