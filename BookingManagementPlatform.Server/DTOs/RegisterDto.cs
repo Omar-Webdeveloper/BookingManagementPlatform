@@ -13,6 +13,6 @@ namespace BookingManagementPlatform.Server.DTOs
         [Required, MinLength(6)]
         public string PasswordHash { get; set; }
 
-        //public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

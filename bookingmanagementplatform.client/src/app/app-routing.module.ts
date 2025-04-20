@@ -13,9 +13,6 @@ import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categorie
 import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
 import { BookingformcontentComponent } from './Hala/bookingformcontent/bookingformcontent.component';
 import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/booking-paymentcontent.component';
-import { RegisterComponent } from './Rahaf/register/register.component';
-import { LoginComponent } from './Rahaf/login/login.component';
-import { ResetPasswordComponent } from './Rahaf/reset-password/reset-password.component';
 import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
 import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
 
@@ -33,15 +30,10 @@ const routes: Routes = [
   { path: 'BookingPayment', component: BookingPaymentcontentComponent },
   { path: 'AllRoomsCategories', component: ShowAllRoomsCategoriesComponent },
   { path: 'AllRoomsForOneCategory', component: ShowAllRoomsForOneCategoryComponent },
-<<<<<<< HEAD
   { path: 'AdminDashBoard', component: AboutuscontentComponent },
-  { path: 'Register', component: RegisterComponent },
-  { path: 'Login', component: LoginComponent },
-  { path: 'ResetPassword', component: ResetPasswordComponent },
   { path: 'VerifyCode', component: VerifyCodeComponent },
   { path: 'ForgotPassword', component: ForgotPasswordComponent }
-=======
->>>>>>> 5124f836084c0546db92249c038d1bbb4a1b39d1
+
 ];
 
 @NgModule({

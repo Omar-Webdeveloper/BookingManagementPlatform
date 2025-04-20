@@ -4,15 +4,15 @@
     <div class="col-md-6">
       <div class="bg-light p-4 shadow rounded">
         <h4 class="mb-4 text-center">Login</h4>
-        <form>
+        <form #LoginForm="ngForm" (ngSubmit)="login(LoginForm.value)">
           <div class="form-group mb-3">
             <label for="loginEmail">Email address</label>
-            <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" required>
+            <input type="email" ngModel name="Email" placeholder="Email" required >
           </div>
 
           <div class="form-group mb-2">
             <label for="loginPassword">Password</label>
-            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+            <input type="password" ngModel name="PasswordHash" placeholder="Password" required >
           </div>
 
           <!-- Forgot Password Link -->
@@ -30,7 +30,7 @@
 
           <!-- Google Login -->
           <div class="d-grid">
-            <button type="button" class="btn btn-outline-danger">
+            <button type="button" class="btn btn-outline-danger" (click)="loginWithGoogle()">
               <i class="fab fa-google me-2"></i> Login with Google
             </button>
           </div>
@@ -40,3 +40,8 @@
   </div>
 </div>
 <!-- Login Form End -->
+
+
+
+
+

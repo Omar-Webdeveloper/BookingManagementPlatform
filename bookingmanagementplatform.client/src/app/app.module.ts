@@ -23,11 +23,8 @@ import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/bo
 import { ReviewRatingcontentComponent } from './Jana/review-ratingcontent/review-ratingcontent.component';
 import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categories/show-all-rooms-categories.component';
 import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
-import { RegisterComponent } from './Rahaf/register/register.component';
-import { LoginComponent } from './Rahaf/login/login.component';
 import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
 import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
-import { ResetPasswordComponent } from './Rahaf/reset-password/reset-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
@@ -54,14 +51,9 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
     ShowAllRoomsForOneCategoryComponent,
-<<<<<<< HEAD
-    RegisterComponent,
-    LoginComponent,
     ForgotPasswordComponent,
     VerifyCodeComponent,
-    ResetPasswordComponent
-=======
->>>>>>> 5124f836084c0546db92249c038d1bbb4a1b39d1
+
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -81,7 +73,8 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
           }
         ]
       } as SocialAuthServiceConfig,
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

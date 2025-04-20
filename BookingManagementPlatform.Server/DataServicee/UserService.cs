@@ -121,7 +121,6 @@ namespace BookingManagementPlatform.Server.UserServicee
                     Image = payload.Picture,
                     PasswordHash = "Google",
                     Role = "User",
-                    CreatedAt = DateTime.Now
                 };
 
                 _context.Users.Add(user);
