@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-dark">Categories List</h2>
+    <a class="btn custom-btn px-4" routerLink="/AddCategory">Add Category</a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let room of RoomCategoriesContainer; let i = index">
+      <div class="card category-card shadow-sm h-100">
+        <img [src]="room.Image" alt="Category Image" class="card-img-top category-img" *ngIf="room.Image">
+        <div class="card-body">
+          <h5 class="card-title text-primary">{{ room.CategoryName }}</h5>
+          <p class="card-text text-muted">{{ room.Description }}</p>
+
+          <div class="d-flex justify-content-between mt-4">
+            <a class="btn btn-sm btn-outline-primary" [routerLink]="'/EditCategory/' + room.CategoryId">Edit</a>
+            <button class="btn btn-sm btn-outline-danger" (click)="DeleteCategory(room.CategoryId)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

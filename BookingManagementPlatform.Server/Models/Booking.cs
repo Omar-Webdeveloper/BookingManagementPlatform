@@ -11,6 +11,8 @@ public partial class Booking
 
     public int? RoomId { get; set; }
 
+    public int? RoomId { get; set; }
+
     public string? Status { get; set; }
 
     public DateOnly? BookingStartDate { get; set; }
@@ -20,6 +22,8 @@ public partial class Booking
     public DateOnly? BookingEndDate { get; set; }
 
     public TimeOnly? BookingEndTime { get; set; }
+
+    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public string? Lighting { get; set; }
 

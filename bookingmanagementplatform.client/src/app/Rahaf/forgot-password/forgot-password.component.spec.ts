@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TuqaTestCompComponent } from './tuqa-test-comp.component';
+import { ForgotPasswordComponent } from './forgot-password.component';
 
-describe('TuqaTestCompComponent', () => {
-  let component: TuqaTestCompComponent;
-  let fixture: ComponentFixture<TuqaTestCompComponent>;
+describe('ForgotPasswordComponent', () => {
+  let component: ForgotPasswordComponent;
+  let fixture: ComponentFixture<ForgotPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TuqaTestCompComponent]
+      declarations: [ForgotPasswordComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TuqaTestCompComponent);
+    fixture = TestBed.createComponent(ForgotPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

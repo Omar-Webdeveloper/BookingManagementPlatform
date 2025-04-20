@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="src\app\Anas\" />
     <Folder Include="src\app\Hala\" />
-    <Folder Include="src\app\Jana\" />
     <Folder Include="src\app\Mohammad\" />
     <Folder Include="src\app\Admin\" />
     <Folder Include="src\app\AdminService\" />
@@ -18,5 +17,6 @@
     <Folder Include="src\app\Rahaf\" />
     <Folder Include="src\app\Omar\" />
     <Folder Include="src\assets\css\" />
+    <Folder Include="src\Services\" />
   </ItemGroup>
 </Project>

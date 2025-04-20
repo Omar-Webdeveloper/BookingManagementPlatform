@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="custom-card p-5">
+        <h2 class="text-center mb-4" style="color: #6C63FF;">Add New Category</h2>
+
+        <form #Add="ngForm" (ngSubmit)="AddCategory(Category)" autocomplete="off">
+          <div class="mb-4">
+            <label class="form-label">Category Name</label>
+            <input type="text" class="form-control custom-input" name="CategoryName" [(ngModel)]="Category.CategoryName" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control custom-input" name="Description" [(ngModel)]="Category.Description" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label"> Image URL</label>
+            <input type="text" class="form-control custom-input" name="Image" [(ngModel)]="Category.Image" required>
+          </div>
+
+          <div class="d-flex justify-content-center mt-4 gap-3">
+            <button type="submit" class="btn custom-btn px-4">Add Category</button>
+            <a class="btn btn-outline-dark px-4" routerLink="/AllCategories">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
