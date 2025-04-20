@@ -45,7 +45,7 @@ import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-o
     BookingPaymentcontentComponent,
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
-    ShowAllRoomsForOneCategoryComponent
+    ShowAllRoomsForOneCategoryComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
