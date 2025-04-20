@@ -42,18 +42,14 @@ const routes: Routes = [
   { path: "selectedRoom/:id", component: RoomDetailsComponent },
   { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: 'VerifyCode', component: VerifyCodeComponent },
-  { path: 'ForgotPassword', component: ForgotPasswordComponent }
-
-];
-const routes: Routes = [
+  { path: 'ForgotPassword', component: ForgotPasswordComponent },
   { path: "AllRooms", component: AllRoomsComponent },
   { path: "AddRoom", component: AddRoomComponent },
   { path: "EditRoom/:id", component: EditRoomComponent },
   { path: "AllCategories", component: AllCategoryComponent },
   { path: "AddCategory", component: AddCategoryComponent },
   { path: "EditCategory/:id", component: EditCategoryComponent },
-  { path: "Users" , component: UsersComponent },
-
+  { path: "Users", component: UsersComponent },
 
 ];
 
