@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JanaTestCompComponent } from './jana-test-comp.component';
+import { RoomDetailsComponent } from './room-details.component';
 
-describe('JanaTestCompComponent', () => {
-  let component: JanaTestCompComponent;
-  let fixture: ComponentFixture<JanaTestCompComponent>;
+describe('RoomDetailsComponent', () => {
+  let component: RoomDetailsComponent;
+  let fixture: ComponentFixture<RoomDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [JanaTestCompComponent]
+      declarations: [RoomDetailsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JanaTestCompComponent);
+    fixture = TestBed.createComponent(RoomDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
