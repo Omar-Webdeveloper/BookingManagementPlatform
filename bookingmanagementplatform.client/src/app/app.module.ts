@@ -43,6 +43,7 @@ import { EditCategoryComponent } from './Tuqa/edit-category/edit-category.compon
 import { UsersComponent } from './Tuqa/users/users.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,7 @@ import { UsersComponent } from './Tuqa/users/users.component';
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
     ShowAllRoomsForOneCategoryComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
     ShowAllRoomsForOneCategoryComponent,
     ForgotPasswordComponent,
     VerifyCodeComponent,

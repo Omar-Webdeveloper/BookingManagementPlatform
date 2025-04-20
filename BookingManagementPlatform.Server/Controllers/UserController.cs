@@ -88,7 +88,7 @@ namespace BookingManagementPlatform.Server.Controllers
         }
 
 
-        //================================================================================
+        //==================================== Hala Controller Methods ============================================
 
 
         [HttpGet("getAllUsers")]
