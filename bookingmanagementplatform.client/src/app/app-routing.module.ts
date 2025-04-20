@@ -46,19 +46,20 @@ const routes: Routes = [
   { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: 'VerifyCode', component: VerifyCodeComponent },
   { path: 'ForgotPassword', component: ForgotPasswordComponent },
-  { path: "AllRooms", component: AllRoomsComponent },
-  { path: "AddRoom", component: AddRoomComponent },
-  { path: "EditRoom/:id", component: EditRoomComponent },
-  { path: "AllCategories", component: AllCategoryComponent },
-  { path: "AddCategory", component: AddCategoryComponent },
-  { path: "EditCategory/:id", component: EditCategoryComponent },
-  { path: "Users", component: UsersComponent },
+  
 
   
   {
     path: 'AdminDashBoard', component: AdminDashBoredComponent, children: [
       { path: 'Contact', component: ContactMessageComponent },
-      { path: 'RequstBooking', component: RequstBookingComponent }
+      { path: 'RequstBooking', component: RequstBookingComponent },
+      { path: "AllRooms", component: AllRoomsComponent },
+      { path: "AddRoom", component: AddRoomComponent },
+      { path: "EditRoom/:id", component: EditRoomComponent },
+      { path: "AllCategories", component: AllCategoryComponent },
+      { path: "AddCategory", component: AddCategoryComponent },
+      { path: "EditCategory/:id", component: EditCategoryComponent },
+      { path: "Users", component: UsersComponent },
   ] }
 
 ];

@@ -59,7 +59,7 @@ export class EditRoomComponent {
           showConfirmButton: false,
           timer: 2000
         }).then(() => {
-          this.router.navigate(['/AllRooms']);
+          this.router.navigate(['/AdminDashBoard/AllRooms']);
         });
       },
       error: (err) => {

@@ -3,7 +3,7 @@
   <div class="message-list">
     <div class="message-card" *ngFor="let item of contactMessageData">
       <div class="card-header">
-        <h3>{{item.title}}</h3>
+        <h3>{{item.Title}}</h3>
       </div>
       <div class="card-body">
         <div class="client-info">
@@ -11,8 +11,8 @@
             <i class="fas fa-user"></i>
           </div>
           <div class="client-details">
-            <div class="client-name">{{item.clinetName}}</div>
-            <div class="client-email">{{item.email}}</div>
+            <div class="client-name">{{item.ClinetName}}</div>
+            <div class="client-email">{{item.Email}}</div>
           </div>
         </div>
         <div class="message-content">
@@ -21,7 +21,7 @@
             <span>Message:</span>
           </div>
           <div class="message-text">
-            {{item.message}}
+            {{item.Message}}
           </div>
         </div>
       </div>

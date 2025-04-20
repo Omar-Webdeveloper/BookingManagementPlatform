@@ -133,6 +133,7 @@ namespace BookingManagementPlatform.Server.ToqaDataService
 
         public bool UpdateRoomCategory(int id, [FromForm] CategoryDto dto)
         { 
+            
             var ExistedRoomCategory = _db.RoomsCategories.Find(id);
             if (ExistedRoomCategory != null)
             {

@@ -44,7 +44,7 @@ export class EditCategoryComponent {
           timer: 1500,
           showConfirmButton: false
         });
-        this.router.navigate(['/AllCategories']);
+        this.router.navigate(['/AdminDashBoard/AllCategories']);
       },
       error: (err) => {
         console.error("Server error:", err.error);

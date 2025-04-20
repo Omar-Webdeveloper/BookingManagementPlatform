@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold text-dark">Rooms List</h2>
-    <a class="btn custom-btn px-4" routerLink="/AddRoom">
+    <a class="btn custom-btn px-4" routerLink="/AdminDashBoard/AddRoom">
       <i class="bi bi-plus-circle"></i> Add Room
     </a>
   </div>
@@ -39,7 +39,7 @@
           <td>{{ room.Lighting }}</td>
           <td>
             <div class="d-flex flex-column gap-2">
-              <a class="btn btn-sm btn-outline-primary" routerLink="/EditRoom/{{room.RoomId}}">
+              <a class="btn btn-sm btn-outline-primary" routerLink="/AdminDashBoard/EditRoom/{{room.RoomId}}">
                 <i class="bi bi-pencil-square"></i> Edit
               </a>
               <button class="btn btn-sm btn-outline-danger" (click)="DeleteRoom(room.RoomId)">
