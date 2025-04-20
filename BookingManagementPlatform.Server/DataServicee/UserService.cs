@@ -194,7 +194,7 @@ namespace BookingManagementPlatform.Server.UserServicee
 
         public List<Room> getRoomByID(int RoomID)
         {
-            var userID = _context.Rooms.FirstOrDefault(b => b.RoomId == RoomID);
+            //var userID = _context.Rooms.FirstOrDefault(b => b.RoomId == RoomID);
             var rooms = _context.Rooms
                 .Where(b => b.RoomId == RoomID)
                 .ToList();

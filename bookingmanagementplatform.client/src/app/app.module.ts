@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,7 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
     ShowAllRoomsForOneCategoryComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
     ShowAllRoomsForOneCategoryComponent,
     ForgotPasswordComponent,
     VerifyCodeComponent,

@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: "selectedRoom/:id", component: RoomDetailsComponent },
   { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: 'VerifyCode', component: VerifyCodeComponent },
-  { path: 'ForgotPassword', component: ForgotPasswordComponent }
+  { path: 'ForgotPassword', component: ForgotPasswordComponent },
 
 ];
 
