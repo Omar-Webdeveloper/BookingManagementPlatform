@@ -22,4 +22,9 @@ export class UrlAdminService {
     return this._http.put(`https://localhost:7297/api/ANASAdmin/editRequstBooking?id=${id}`, data, { headers });
   }
 
+  sendContactMessage(message: any) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this._http.post(`https://localhost:7297/api/ANASAdmin/sendMessage`, message, { headers });
+  }
+
 }

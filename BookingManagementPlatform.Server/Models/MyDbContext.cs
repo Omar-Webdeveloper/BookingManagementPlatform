@@ -31,13 +31,13 @@ public partial class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-T6EH1VU;Database=book;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=MOHAMMAD-ALSHOR;Database=book;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Booking>(entity =>
         {
-            entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AEDEFCC6E42");
+            entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AEDDDEA3C4E");
 
             entity.Property(e => e.BookingEndDate).HasColumnName("Booking_end_date");
             entity.Property(e => e.BookingEndTime).HasColumnName("Booking_end_time");
@@ -60,7 +60,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<ContactUsMessage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC077C3D891A");
+            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC07994A71EC");
 
             entity.Property(e => e.ClinetName).HasMaxLength(500);
             entity.Property(e => e.Email).HasMaxLength(500);
@@ -70,7 +70,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Payment__3213E83F0433EAEE");
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3213E83FBC780C22");
 
             entity.ToTable("Payment");
 
@@ -98,9 +98,9 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Review>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Review__3213E83F75C26FD1");
+            entity.HasKey(e => e.Id).HasName("PK__Review__3213E83F33B47A22");
 
-            entity.ToTable("Review");
+                entity.ToTable("Review");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BookingId).HasColumnName("booking_id");
@@ -118,7 +118,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Room>(entity =>
         {
-            entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939393388E4");
+            entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939B1704D46");
 
             entity.Property(e => e.Capacity).HasColumnName("capacity");
             entity.Property(e => e.Description).HasMaxLength(255);
@@ -155,7 +155,7 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<RoomsCategory>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__RoomsCat__19093A0B267578C1");
+            entity.HasKey(e => e.CategoryId).HasName("PK__RoomsCat__19093A0B7A7FC5D3");
 
             entity.Property(e => e.CategoryName).HasMaxLength(100);
             entity.Property(e => e.Description)
@@ -169,9 +169,9 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C236ABE94");
+            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4CF930634F");
 
-            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534671698E0").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D1053438938D30").IsUnique();
 
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.FullName).HasMaxLength(100);
@@ -184,8 +184,9 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Role).HasMaxLength(50);
         });
 
-        OnModelCreatingPartial(modelBuilder);
-    }
+            OnModelCreatingPartial(modelBuilder);
+        }
+ 
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

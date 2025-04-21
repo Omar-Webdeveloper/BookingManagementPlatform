@@ -51,8 +51,18 @@ namespace BookingManagementPlatform.Server.Controllers
             }
         }
 
-
-
-
+        [HttpPost("sendMessage")]
+        public IActionResult SendMessage([FromBody] ContactUsMessageDTO message)
+        {
+            var result = _ser.SendContactMessage(message);
+            if (result)
+            {
+                return Ok(new { message = "Message sent successfully" });
+            }
+            else
+            {
+                return BadRequest(new { message = "Failed to send message" });
+            }
+        }
     }
 }
