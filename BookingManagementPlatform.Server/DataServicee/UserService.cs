@@ -154,7 +154,9 @@ namespace BookingManagementPlatform.Server.UserServicee
         {
             var booking = new Booking
             {
-                UserId = userId,
+                //UserId = userId,
+                UserId = 14,
+
                 RoomId = bookingDto.RoomId,
                 Status = "Processing",
                 BookingStartDate = bookingDto.BookingStartDate,
@@ -185,7 +187,7 @@ namespace BookingManagementPlatform.Server.UserServicee
         public List<Booking> getallbookings(int UserId)
         {
             var bookings = _context.Bookings
-                .Where(b => b.UserId == UserId)
+                .Where(b => b.UserId == 14)
                 .Include(b => b.Room) // عشان يجيب معلومات الغرفة كمان
                 .ToList();
 

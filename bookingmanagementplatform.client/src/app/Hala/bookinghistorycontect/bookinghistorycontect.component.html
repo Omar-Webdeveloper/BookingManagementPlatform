@@ -71,13 +71,13 @@
         <tbody>
           <tr *ngFor="let booking of bookings; let i = index">
             <td>{{ i + 1 }}</td>
-            <td>{{ booking.roomName }}</td>
-            <td>{{ booking.bookingStartDate | date: 'yyyy-MM-dd' }}</td>
-            <td>{{ booking.bookingStartTime }}</td>
-            <td>{{ booking.bookingEndTime }}</td>
+            <td>{{ booking.RoomName }}</td>
+            <td>{{ booking.BookingStartDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ booking.BookingStartTime }}</td>
+            <td>{{ booking.BookingEndTime }}</td>
             <td>
               <span [ngClass]="getBadgeClass(booking.status)" class="badge">
-                {{ booking.status }}
+                {{ booking.Status }}
               </span>
             </td>
             <td *ngIf="booking.status !== 'Cancelled'">

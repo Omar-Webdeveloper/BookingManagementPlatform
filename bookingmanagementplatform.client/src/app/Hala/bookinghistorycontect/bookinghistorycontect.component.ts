@@ -15,7 +15,7 @@ export class BookinghistorycontectComponent {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    const userId = 1; 
+    const userId = 14; 
     this.http.get<any[]>(`https://localhost:7297/api/User/GetUserBookings/${userId}`)
       .subscribe({
         next: (res) => {

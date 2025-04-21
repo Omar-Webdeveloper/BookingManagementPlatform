@@ -48,13 +48,11 @@ export class BookingformcontentComponent {
   }
 
   submitBooking() {
-    debugger
 
     if (this.bookingForm.valid) {
       const selectedRoomId = this.bookingForm.get('roomId')?.value;
       const formData = this.bookingForm.value;
       formData.roomId = 5
-      debugger
       this.http.post('https://localhost:7297/api/User/AddBooking', formData).subscribe({
         next: res => {
           alert('Booking added successfully!');
@@ -72,7 +70,6 @@ export class BookingformcontentComponent {
 
   selectedRoomId :any
   getRoomId(event: Event): void {
-    debugger
     const selectedRoomId = this.bookingForm.get('roomId')?.value;
      //selectedRoomId = (event.target as HTMLSelectElement).value;
     console.log('Selected Room ID:', selectedRoomId);
