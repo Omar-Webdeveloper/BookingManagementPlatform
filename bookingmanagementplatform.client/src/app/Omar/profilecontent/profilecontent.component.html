@@ -1,40 +1,35 @@
 <!-- Profile Start -->
-<div class="container py-5">
-  <div class="row align-items-stretch" style="min-height: 450px;">
-    <!-- Left: Profile Image -->
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <div class="bg-light d-flex flex-column align-items-center justify-content-center h-100 p-4 shadow rounded">
-        <img src="https://via.placeholder.com/200" class="img-fluid rounded-circle mb-3" style="width: 200px; height: 200px; object-fit: cover;" alt="User Image">
-        <h4 class="text-center mb-0">John Doe</h4>
-        <small class="text-muted">johndoe&#64;example.com</small>
-      </div>
-    </div>
-
-    <!-- Right: User Info Form -->
-    <div class="col-lg-8">
-      <div class="bg-light p-4 h-100 shadow rounded">
+<!--<div class="container py-5">
+  <div class="row align-items-stretch" style="min-height: 450px;">-->
+<!-- Left: Profile Image -->
+<!--<div class="col-lg-4 mb-4 mb-lg-0" *ngIf="profile">
+  <div class="bg-light d-flex flex-column align-items-center justify-content-center h-100 p-4 shadow rounded">
+    <img [src]="user.Image" alt="User Image" >
+    <small class="text-muted">{{ profile.Email }}</small>
+  </div>
+</div>-->
+<!-- Right: User Info Form -->
+<!--<div class="col-lg-8">
+      <div class="bg-light p-4 h-100 shadow rounded" *ngIf="profile">
         <h4 class="mb-4">User Information</h4>
         <form>
           <div class="form-group mb-3">
             <label for="name">Full Name</label>
-            <input type="text" class="form-control" id="name" value="John Doe">
+            <input type="text" class="form-control" id="name" value="{{ profile.FullName  }}">
           </div>
           <div class="form-group mb-3">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" value="johndoe&#64;example.com">
+            <input type="email" class="form-control" id="email" value="{{ profile.Email }}">
           </div>
           <div class="form-group mb-3">
             <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="phone" value="+123 456 7890">
+            <input type="text" class="form-control" id="phone" value="{{ profile.Email }}">
           </div>
-          <div class="form-group mb-3">
-            <label for="bio">About</label>
-            <textarea class="form-control" id="bio" rows="3">Short bio about the user...</textarea>
-          </div>
+
           <a routerLink="/EditProfile" class="btn btn-primary">Update Profile</a>
         </form>
       </div>
     </div>
   </div>
-</div>
+</div>-->
 <!-- Profile End -->

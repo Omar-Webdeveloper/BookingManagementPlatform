@@ -24,7 +24,7 @@ builder.Services.AddSession(options =>
 });
 
 
-builder.Services.AddScoped<IOmarClass, BookingManagementPlatform.Server.DataServicee.OmarClass>();
+builder.Services.AddScoped<IOmarService, OmarService>();
 builder.Services.AddScoped<IUserServicee, UserService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IDataServiceJana, DataServiceJana>();

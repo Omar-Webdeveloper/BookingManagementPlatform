@@ -74,7 +74,7 @@ import { ContactMessageComponent } from './Admin/contact-message/contact-message
     ShowAllRoomsForOneCategoryComponent,
     AdminDashBoredComponent,
     RequstBookingComponent,
-    ContactMessageComponent
+    ContactMessageComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,

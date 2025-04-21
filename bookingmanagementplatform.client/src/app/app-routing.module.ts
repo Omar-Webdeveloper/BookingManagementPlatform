@@ -42,9 +42,7 @@ const routes: Routes = [
   { path: 'BookingPayment', component: BookingPaymentcontentComponent },
   { path: 'AllRoomsCategories', component: ShowAllRoomsCategoriesComponent },
   { path: 'AllRoomsForOneCategory', component: ShowAllRoomsForOneCategoryComponent },
-  { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: "selectedRoom/:id", component: RoomDetailsComponent },
-  { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: 'VerifyCode', component: VerifyCodeComponent },
   { path: 'ForgotPassword', component: ForgotPasswordComponent },
   

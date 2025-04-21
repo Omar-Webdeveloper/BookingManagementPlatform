@@ -21,6 +21,7 @@ export class LogincontentComponent {
     this.authService.login(userData).subscribe(
       {
         next: res => {
+          sessionStorage.setItem('Email', res.Email);
           // Display SweetAlert2 success notification
           Swal.fire({
             title: 'Login Successful!',
@@ -52,6 +53,7 @@ export class LogincontentComponent {
 
       this.authService.googleLogin(user).subscribe({
         next: res => {
+          
           alert('Google login successful!');
           console.log(res);
         },
