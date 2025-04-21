@@ -24,8 +24,8 @@ import { RoomDetailsComponent } from './Jana/room-details/room-details.component
 import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
 import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+//import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+//import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { FormsModule } from '@angular/forms';
 import { AllRoomsComponent } from './Tuqa/all-rooms/all-rooms.component';
 import { AddRoomComponent } from './Tuqa/add-room/add-room.component';
@@ -82,21 +82,21 @@ import { ContactMessageComponent } from './Admin/contact-message/contact-message
     ReactiveFormsModule
   //  , SocialLoginModule
   ],
-  providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('820022799549-l2ltlkctk8so89mifm9i1i38j5b5emqb.apps.googleusercontent.com')
-          }
-        ]
-      } as SocialAuthServiceConfig,
-    }
-    ,AppRoutingModule, FormsModule
-  ],
+  //providers: [
+  //  {
+  //    provide: 'SocialAuthServiceConfig',
+  //    useValue: {
+  //      autoLogin: false,
+  //      providers: [
+  //        {
+  //          id: GoogleLoginProvider.PROVIDER_ID,
+  //          provider: new GoogleLoginProvider('820022799549-l2ltlkctk8so89mifm9i1i38j5b5emqb.apps.googleusercontent.com')
+  //        }
+  //      ]
+  //    } as SocialAuthServiceConfig,
+  //  }
+  //  ,AppRoutingModule, FormsModule
+  //],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
