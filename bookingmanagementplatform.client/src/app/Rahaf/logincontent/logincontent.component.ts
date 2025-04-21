@@ -20,6 +20,9 @@ export class LogincontentComponent {
     userData.append('Email', user.Email);
     userData.append('PasswordHash', user.PasswordHash);
     this.authService.login(userData).subscribe((datass) => {
+
+    this.authService.login(userData).subscribe((data) => {
+      //debugger
       sessionStorage.setItem('Email', user.Email);
       this.user_role.Get_User_INfo(user.Email).subscribe((res) => {
         this.loginneduser = res; this.role = this.loginneduser.Role;

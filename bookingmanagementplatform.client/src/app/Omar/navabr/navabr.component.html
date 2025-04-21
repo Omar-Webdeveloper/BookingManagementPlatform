@@ -11,6 +11,12 @@
       <div class="navbar-nav mx-auto py-0">
         <a routerLink="/Home" class="nav-item nav-link active">Home</a>
         <a routerLink="/About_US" class="nav-item nav-link">About US</a>
+        <a routerLink="/AllRoomsForOneCategory" class="nav-item nav-link">Book Now</a>
+        <!--Added by hala-->
+        <button routerLink="/BookingForm" class="nav-item nav-link">Booking Form</button>
+        <button [routerLink]="['/bookinghistorycontect', 1]" class="nav-item nav-link">History</button>
+        <!--<button routerLink="/bookinghistorycontect" class="nav-item nav-link">History</button>-->
+        <!--End od Added by hala-->
         <a routerLink="/DevelopmentTeam" class="nav-item nav-link">Development Team</a>
         <a routerLink="/Testmonails" class="nav-item nav-link">Testmonails</a>
         <a routerLink="/Contact_US" class="nav-item nav-link">Contact US</a>

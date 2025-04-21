@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BookingManagementPlatform.Server.Models;
 
@@ -31,6 +32,7 @@ public partial class Room
 
     public string? Seating { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     public virtual RoomsCategory? Category { get; set; }

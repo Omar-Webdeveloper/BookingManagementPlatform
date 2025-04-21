@@ -61,6 +61,9 @@ const routes: Routes = [
       { path: "Users", component: UsersComponent },
   ] }
 
+ , { path: 'bookinghistorycontect/:id', component: BookinghistorycontectComponent },
+
+
 ];
 
 @NgModule({

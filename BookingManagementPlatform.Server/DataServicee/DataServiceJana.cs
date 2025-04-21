@@ -23,6 +23,7 @@ namespace BookingManagementPlatform.Server.DataServicee
                            .Where(r => r.CategoryId == categoryId)
                            .ToList();
         }
+
         public List<Room> GetStudyRooms()
         {
             var studyRooms = _context.Rooms.ToList();
@@ -38,3 +39,4 @@ namespace BookingManagementPlatform.Server.DataServicee
 
     }
 }
+

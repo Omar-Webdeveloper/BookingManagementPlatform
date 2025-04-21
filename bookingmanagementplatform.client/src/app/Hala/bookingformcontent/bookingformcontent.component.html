@@ -6,29 +6,38 @@
       <div class="row">
 
         <!-- Room ID -->
+        <!--<div class="col-md-6 mb-3">
+    <label for="roomId">Room ID</label>
+    <input type="number" formControlName="roomId" class="form-control" id="roomId" placeholder="Enter Room ID" required>
+  </div>-->
+        <!-- Room ID (Now a select dropdown) -->
         <div class="col-md-6 mb-3">
-          <label for="roomId">Room ID</label>
-          <input type="number" formControlName="roomId" class="form-control" id="roomId" placeholder="Enter Room ID" required>
+          <label for="roomId">Room</label>
+          <select formControlName="roomId" class="form-control" id="roomId" required (change)="getRoomId($event)">
+            <option value="" disabled selected>Select a Room</option>
+            <option *ngFor="let room of rooms" [value]="room.id">{{ room.serviceName }}</option>
+          </select>
         </div>
+
 
         <!-- Start Date & Time -->
         <div class="col-md-6 mb-3">
           <label for="startDate">Start Date</label>
-          <input type="date" class="form-control" id="startDate" formControlName="bookingStartDate" required>
+          <input type="date" class="form-control" id="startDate" formControlName="BookingStartDate" required>
         </div>
         <div class="col-md-6 mb-3">
           <label for="startTime">Start Time</label>
-          <input type="time" class="form-control" id="startTime" formControlName="bookingStartTime" required>
+          <input type="time" class="form-control" id="startTime" formControlName="BookingStartTime" required>
         </div>
 
         <!-- End Date & Time -->
-        <div class="col-md-6 mb-3">
-          <label for="endDate">End Date</label>
-          <input type="date" class="form-control" id="endDate" formControlName="bookingEndDate" required>
-        </div>
+        <!--<div class="col-md-6 mb-3">
+    <label for="endDate">End Date</label>
+    <input type="date" class="form-control" id="endDate" formControlName="bookingEndDate" required>
+  </div>-->
         <div class="col-md-6 mb-3">
           <label for="endTime">End Time</label>
-          <input type="time" class="form-control" id="endTime" formControlName="bookingEndTime" required>
+          <input type="time" class="form-control" id="endTime" formControlName="BookingEndTime" required>
         </div>
 
       </div>
