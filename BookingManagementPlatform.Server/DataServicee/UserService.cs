@@ -33,6 +33,13 @@ namespace BookingManagementPlatform.Server.UserServicee
                 FullName = dto.FullName,
                 Email = dto.Email,
                 PasswordHash = hashedPwd,
+                PhoneNumber = dto.PhoneNumber
+            };
+            var user = new User
+            {
+                FullName = dto.FullName,
+                Email = dto.Email,
+                PasswordHash = hashedPwd,
                 PhoneNumber = dto.PhoneNumber,
                 Image = "https://th.bing.com/th/id/OIP.3QFyrNxwWam0ZopJXZZhaAHaHa?w=183&h=183&c=7&r=0&o=5&pid=1.7",
                 Role = "User"
@@ -50,7 +57,14 @@ namespace BookingManagementPlatform.Server.UserServicee
             if (user == null || !BCrypt.Net.BCrypt.Verify(dto.PasswordHash, user.PasswordHash))
                 return null;
             // Save user ID in the session
+            _httpContextAccessor.HttpContext.Session.SetInt32("UserID", user.UserId);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.PasswordHash, user.PasswordHash))
+                return null;
+            // Save user ID in the session
 
+            var userId = _httpContextAccessor.HttpContext.Session.GetInt32("UserID");
+            return "valid-login";
+        }
             return "valid-login";
         }
 
@@ -157,6 +171,18 @@ namespace BookingManagementPlatform.Server.UserServicee
                 //UserId = userId,
                 UserId = 14,
 
+                RoomId = bookingDto.RoomId,
+                Status = "Processing",
+                BookingStartDate = bookingDto.BookingStartDate,
+                BookingStartTime = bookingDto.BookingStartTime,
+                BookingEndDate = bookingDto.BookingEndDate,
+                BookingEndTime = bookingDto.BookingEndTime
+            };
+        public Booking AddBooking(int userId, BookingByID bookingDto)
+        {
+            var booking = new Booking
+            {
+                UserId = userId,
                 RoomId = bookingDto.RoomId,
                 Status = "Processing",
                 BookingStartDate = bookingDto.BookingStartDate,

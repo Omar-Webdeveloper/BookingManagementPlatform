@@ -38,6 +38,7 @@ namespace BookingManagementPlatform.Server.DataServicee
             }
         }
 
+            return Message;
 
         public List<ContactUsMessage> MessageContact()
         {
@@ -45,28 +46,6 @@ namespace BookingManagementPlatform.Server.DataServicee
 
             return Message;
 
-        }
-
-        public bool SendContactMessage(ContactUsMessageDTO message)
-        {
-            try
-            {
-                var newMessage = new ContactUsMessage
-                {
-                    Title = message.Title,
-                    Message = message.Message,
-                    ClinetName = message.ClinetName,
-                    Email = message.Email
-                };
-
-                _dbContext.ContactUsMessages.Add(newMessage);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

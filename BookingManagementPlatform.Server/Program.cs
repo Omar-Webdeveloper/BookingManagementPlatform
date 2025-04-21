@@ -7,12 +7,14 @@ using BookingManagementPlatform.Server.UserServicee;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+//Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 builder.Services.AddDistributedMemoryCache();
@@ -24,6 +26,7 @@ builder.Services.AddSession(options =>
 });
 
 
+builder.Services.AddScoped<IANASDataSER, ANASDataSER>();
 builder.Services.AddScoped<IOmarService, OmarService>();
 builder.Services.AddScoped<IUserServicee, UserService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
@@ -52,6 +55,30 @@ builder.Services.AddControllers()
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
+builder.Services.AddCors(
+    options => options.AddPolicy(
+        "Develop", options =>
+        {
+            options.AllowAnyOrigin();
+            options.AllowAnyMethod();
+            options.AllowAnyHeader();
+        }
+        )
+    
+    
+);
+
+
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    });
+
+
+var app = builder.Build();
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
@@ -61,11 +88,25 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 app.UseCors("Develop");
 app.UseAuthorization();
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
+app.MapControllers();
+app.UseHttpsRedirection();
+app.UseCors("Develop");
+app.UseAuthorization();
+
+app.MapFallbackToFile("/index.html");
 app.MapControllers();
 app.UseSession();
 app.MapFallbackToFile("/index.html");
