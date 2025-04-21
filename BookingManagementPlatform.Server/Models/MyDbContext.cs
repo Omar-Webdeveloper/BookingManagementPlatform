@@ -37,7 +37,7 @@ public partial class MyDbContext : DbContext
     {
         modelBuilder.Entity<Booking>(entity =>
         {
-            entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AEDEFCC6E42");
+            entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AEDDDEA3C4E");
 
             entity.Property(e => e.BookingEndDate).HasColumnName("Booking_end_date");
             entity.Property(e => e.BookingEndTime).HasColumnName("Booking_end_time");
@@ -51,9 +51,6 @@ public partial class MyDbContext : DbContext
                 .HasForeignKey(d => d.RoomId)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK__Bookings__RoomId__4316F928");
-            modelBuilder.Entity<Booking>(entity =>
-            {
-                entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AED71304FDD");
 
                 entity.Property(e => e.BookingEndDate).HasColumnName("Booking_end_date");
                 entity.Property(e => e.BookingEndTime).HasColumnName("Booking_end_time");
@@ -85,45 +82,41 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<ContactUsMessage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC077C3D891A");
-            modelBuilder.Entity<ContactUsMessage>(entity =>
-            {
-                entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC077C3D891A");
-                entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC070018276D");
+            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC07994A71EC");
 
-                entity.Property(e => e.ClinetName).HasMaxLength(500);
-                entity.Property(e => e.Email).HasMaxLength(500);
-                entity.Property(e => e.Message).HasMaxLength(500);
-                entity.Property(e => e.Title).HasMaxLength(500);
-            });
+            entity.Property(e => e.ClinetName).HasMaxLength(500);
+            entity.Property(e => e.Email).HasMaxLength(500);
+            entity.Property(e => e.Message).HasMaxLength(500);
+            entity.Property(e => e.Title).HasMaxLength(500);
+        });
 
-            modelBuilder.Entity<Payment>(entity =>
-            {
-                entity.HasKey(e => e.Id).HasName("PK__Payment__3213E83F0433EAEE");
+        modelBuilder.Entity<Payment>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3213E83FBC780C22");
 
-                entity.ToTable("Payment");
+            entity.ToTable("Payment");
 
-                entity.Property(e => e.Id).HasColumnName("id");
-                entity.Property(e => e.Amount).HasColumnName("amount");
-                entity.Property(e => e.BookingId).HasColumnName("booking_id");
-                entity.Property(e => e.Cardnumber)
-                    .HasMaxLength(16)
-                    .IsUnicode(false)
-                    .HasColumnName("cardnumber");
-                entity.Property(e => e.Cvc)
-                    .HasMaxLength(4)
-                    .IsUnicode(false)
-                    .HasColumnName("CVC");
-                entity.Property(e => e.PaymentMethod)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("payment_method");
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Amount).HasColumnName("amount");
+            entity.Property(e => e.BookingId).HasColumnName("booking_id");
+            entity.Property(e => e.Cardnumber)
+                .HasMaxLength(16)
+                .IsUnicode(false)
+                .HasColumnName("cardnumber");
+            entity.Property(e => e.Cvc)
+                .HasMaxLength(4)
+                .IsUnicode(false)
+                .HasColumnName("CVC");
+            entity.Property(e => e.PaymentMethod)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("payment_method");
 
-                entity.HasOne(d => d.Booking).WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.BookingId)
-                    .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK__Payment__booking__4BAC3F29");
-            });
+            entity.HasOne(d => d.Booking).WithMany(p => p.Payments)
+                .HasForeignKey(d => d.BookingId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK__Payment__booking__4BAC3F29");
+        });
 
             modelBuilder.Entity<Review>(entity =>
             {

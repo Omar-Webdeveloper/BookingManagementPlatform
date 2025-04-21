@@ -38,6 +38,7 @@ namespace BookingManagementPlatform.Server.DataServicee
             }
         }
 
+            return Message;
 
         public List<ContactUsMessage> MessageContact()
         {

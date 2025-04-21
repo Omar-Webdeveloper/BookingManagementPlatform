@@ -2,11 +2,11 @@
 <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
   <div class="container text-center py-5">
     <h1 class="text-white display-1">Room Detail</h1>
-    <div class="d-inline-flex text-white mb-5">
+    <!--<div class="d-inline-flex text-white mb-5">
       <p class="m-0 text-uppercase"><a class="text-white" href="#">Home</a></p>
       <i class="fa fa-angle-double-right pt-1 px-3"></i>
       <p class="m-0 text-uppercase">Room Detail</p>
-    </div>
+    </div>-->
   </div>
 </div>
 
@@ -18,42 +18,42 @@
       <div class="col-lg-8">
         <div class="mb-5">
           <div class="section-title position-relative mb-5">
-            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Room Detail</h6>
-            <h1 class="display-4">{{ room?.serviceName }}</h1>
+            <h6 class="d-inline-block position-relative  text-uppercase pb-2"></h6>
+            <h1 class="display-4">{{ room?.ServiceName }}</h1>
           </div>
           <div>
-            <img class="img-fluid rounded w-100 mb-4" [src]="room?.serviceImage" alt="Room Image" style="height: 669px; object-fit: cover;">
+            <img class="img-fluid rounded w-100 mb-4" [src]="room?.ServiceImage" alt="Room Image" style="height: 669px; object-fit: cover;">
           </div>
-          <p>{{ room?.description }}</p>
+          <p>{{ room?.Description }}</p>
 
         </div>
       </div>
 
       <!-- Room Features -->
       <div class="col-lg-4 mt-5 mt-lg-0">
-        <div class="bg-light mb-5 py-3" style=" margin-top: 51%; ">
+        <div class="bg-light mb-5 py-3" style=" margin-top: 45%; ">
           <h3 class=" py-3 px-4 m-0">Room Features</h3>
 
 
 
           <div class="d-flex justify-content-between border-bottom px-4">
-            <h6 class=" my-3">Location</h6>
-            <h6 class=" my-3">{{ room?.location }}</h6>
+            <h6 class=" my-3"><i class="fa-solid fa-location-dot"></i></h6>
+            <h6 class=" my-3">{{ room?.Location }}</h6>
           </div>
 
           <div class="d-flex justify-content-between border-bottom px-4">
-            <h6 class=" my-3">Capacity</h6>
-            <h6 class=" my-3">{{ room?.capacity }} people</h6>
+            <h6 class=" my-3"><i class="fa-solid fa-users"></i></h6>
+            <h6 class=" my-3">{{ room?.Capacity }} people</h6>
           </div>
 
           <div class="d-flex justify-content-between border-bottom px-4">
-            <h6 class=" my-3">Duration</h6>
-            <h6 class=" my-3">{{ room?.duration }} mins</h6>
+            <h6 class=" my-3"><i class="fa-solid fa-clock"></i></h6>
+            <h6 class=" my-3">{{ room?.Duration }} mins</h6>
           </div>
 
           <div class="d-flex justify-content-between border-bottom px-4">
-            <h6 class=" my-3">Price</h6>
-            <h6 class=" my-3">{{ room?.price }} JD</h6>
+            <h6 class=" my-3"><i class="fa-solid fa-dollar-sign"></i></h6>
+            <h6 class=" my-3">{{ room?.Price }} JD</h6>
           </div>
 
           <div class="py-3 px-4">
@@ -62,42 +62,49 @@
         </div>
         <!-- Room Atmosphere Section -->
         <div class="bg-light rounded shadow-sm py-4 px-4">
-          <h4 class=" mb-4"><i class="fa fa-magic me-2"></i>Atmosphere</h4>
+          <h4 class=" mb-4">Atmosphere</h4>
 
           <div class="row g-3">
-            <div class="col-6 d-flex align-items-center">
-              <i class="fa fa-lightbulb text-warning fa-2x me-3"></i>
+            <div class="col-6 d-flex align-items-center" style=" margin-bottom: 39px;">
+              <i class="fa fa-lightbulb text-dark fa-x " style="margin-bottom:23px;margin-right:9px;" ></i>
               <div>
-                <h6 class="mb-0">Lighting</h6>
-                <small class="text-muted">{{ room?.lighting || 'N/A' }}</small>
+                <h6 class="mb-0" style="font-weight: bolder;">Lighting:</h6>
+                <small class="text-muted">{{ room?.Lighting || 'N/A' }}</small>
+                <br />
+              </div>
+             
+            </div>
+
+            <div class="col-6 d-flex align-items-center" style=" margin-bottom: 39px;">
+              <i class="fa fa-eye text-dark fa-x " style="margin-bottom:23px;margin-right:9px;"></i>
+              <div>
+                <h6 class="mb-0" style="font-weight: bolder;">View :</h6>
+                <small class="text-muted">{{ room?.ViewLook || 'N/A' }}</small>
+                <br />
+              </div>
+             
+            </div>
+
+            <div class="col-6 d-flex align-items-center">
+              <i class="fa fa-music text-dark fa-x " style="margin-bottom:23px;margin-right:9px;"></i>
+              <div>
+                <h6 class="mb-0" style="font-weight: bolder;">Music Level :</h6>
+                <small class="text-muted">{{ room?.MusicLevel || 'N/A' }}</small>
               </div>
             </div>
 
             <div class="col-6 d-flex align-items-center">
-              <i class="fa fa-eye text-info fa-2x me-3"></i>
+              <i class="fa fa-couch text-dark  fa-x me-3" style="margin-bottom:23px;margin-right:9px;"></i>
               <div>
-                <h6 class="mb-0">View</h6>
-                <small class="text-muted">{{ room?.viewLook || 'N/A' }}</small>
-              </div>
-            </div>
-
-            <div class="col-6 d-flex align-items-center">
-              <i class="fa fa-music text-danger fa-2x me-3"></i>
-              <div>
-                <h6 class="mb-0">Music Level</h6>
-                <small class="text-muted">{{ room?.musicLevel || 'N/A' }}</small>
-              </div>
-            </div>
-
-            <div class="col-6 d-flex align-items-center">
-              <i class="fa fa-couch text-success fa-2x me-3"></i>
-              <div>
-                <h6 class="mb-0">Seating</h6>
-                <small class="text-muted">{{ room?.seating || 'N/A' }}</small>
+                <h6 class="mb-0" style="font-weight:bolder;">Seating :</h6>
+                <small class="text-muted">{{ room?.Seating || 'N/A' }}</small>
               </div>
             </div>
           </div>
+       
+        
         </div>
+
       </div>
       
     </div>

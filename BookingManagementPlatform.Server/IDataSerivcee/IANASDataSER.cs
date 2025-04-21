@@ -8,8 +8,8 @@ namespace BookingManagementPlatform.Server.IDataSerivcee
         public List<Booking> GetAllRequst();
         public bool editBooking(int id, BookingRequstDTO data);
 
-        public List<ContactUsMessage> MessageContact(); 
+        public List<ContactUsMessage> MessageContact();
 
-
+        public bool SendContactMessage(ContactUsMessageDTO message);
     }
 }

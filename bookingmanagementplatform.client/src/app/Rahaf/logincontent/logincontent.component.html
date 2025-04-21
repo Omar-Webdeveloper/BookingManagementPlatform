@@ -49,17 +49,25 @@
         <form #LoginForm="ngForm" (ngSubmit)="login(LoginForm.value)">
           <div class="form-group mb-3">
             <label for="loginEmail">Email address</label>
-            <input type="email" ngModel name="Email" class="form-control" placeholder="Email" required>
+            <!--<input type="email" ngModel name="Email" class="form-control" placeholder="Email" required>-->
+            <input type="email" ngModel name="Email" #email="ngModel" class="form-control" placeholder="Email" required>
+            <div class="text-danger small mt-1" *ngIf="email.invalid && (email.dirty || email.touched)">
+              Email is required and must be valid.
+            </div>
           </div>
 
           <div class="form-group mb-2">
             <label for="loginPassword">Password</label>
-            <input type="password" ngModel name="PasswordHash" class="form-control" placeholder="Password" required>
+            <!--<input type="password" ngModel name="PasswordHash" class="form-control" placeholder="Password" required>-->
+            <input type="password" ngModel name="PasswordHash" #password="ngModel" class="form-control" placeholder="Password" required>
+            <div class="text-danger small mt-1" *ngIf="password.invalid && (password.dirty || password.touched)">
+              Password is required.
+            </div>
           </div>
 
           <!-- Forgot Password Link -->
           <div class="text-end mb-4">
-            <a routerLink="/forgot-password" class="text-decoration-none small">Forgot Password?</a>
+            <a routerLink="/ForgotPassword" class="text-decoration-none small">Forgot Password?</a>
           </div>
 
           <!-- Regular Login -->
@@ -72,8 +80,11 @@
 
           <!-- Google Login -->
           <div class="d-grid">
-            <button type="button" class="btn btn-danger btn-lg rounded-pill shadow-sm" (click)="loginWithGoogle()">
-              <i class="fab fa-google me-2"></i> Login with Google
+            <!--<button type="button" class="btn btn-danger btn-lg rounded-pill shadow-sm" (click)="loginWithGoogle()">
+    <i class="fab fa-google me-2"></i> Login with Google
+  </button>-->
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm" [disabled]="LoginForm.invalid">
+              Login
             </button>
           </div>
         </form>

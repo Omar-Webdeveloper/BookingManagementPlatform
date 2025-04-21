@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookingManagementPlatform.Server.Controllers.Jana
+namespace BookingManagementPlatform.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

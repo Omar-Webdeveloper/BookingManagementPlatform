@@ -1,4 +1,4 @@
-<div class="container py-5">
+<!--<div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="bg-light p-4 shadow rounded">
@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-6 form-group mb-3">
               <label for="firstName">First Name</label>
-              <input type="text"ngModel name="FullName" placeholder="Full Name" >
+              <input type="text" ngModel name="FullName" placeholder="Full Name" >
             </div>
           </div>
           <div class="form-group mb-3">
@@ -24,6 +24,139 @@
           </div>
           <div class="d-grid">
             <button type="submit" class="btn btn-success">Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="bg-light p-5 shadow rounded">
+        <!-- Form Title -->
+        <h2 class="mb-4 text-center text-uppercase text-primary">Create Your Account</h2>
+        <!-- Registration Form -->
+        <!--<form #RegisterForm="ngForm" (ngSubmit)="register(RegisterForm.value)">
+    <div class="row">-->
+        <!-- Full Name Field -->
+        <!--<div class="col-md-6 form-group mb-3">
+    <label for="firstName" class="form-label text-secondary">Full Name</label>
+    <input type="text"
+            ngModel name="FullName"
+           class="form-control form-control-lg border-0 shadow-sm"
+           placeholder="Your Full Name"
+           required />
+  </div>-->
+        <!-- Email Field -->
+        <!--<div class="col-md-6 form-group mb-3">
+      <label for="registerEmail" class="form-label text-secondary">Email Address</label>
+      <input type="email"
+             ngModel name="Email"
+             class="form-control form-control-lg border-0 shadow-sm"
+             placeholder="Your Email"
+             required />
+    </div>
+  </div>-->
+        <!-- Phone Number Field -->
+        <!--<div class="form-group mb-3">
+    <label for="registerPhone" class="form-label text-secondary">Phone Number</label>
+    <input type="number"
+           ngModel name="PhoneNumber"
+           class="form-control form-control-lg border-0 shadow-sm"
+           placeholder="Your Phone Number"
+           required />
+  </div>-->
+        <!-- Password Field -->
+        <!--<div class="form-group mb-4">
+    <label for="registerPassword" class="form-label text-secondary">Password</label>
+    <input type="password"
+           ngModel name="PasswordHash"
+           class="form-control form-control-lg border-0 shadow-sm"
+           placeholder="Create a Password"
+           required />
+  </div>-->
+        <!-- Submit Button -->
+        <!--<div class="d-grid">
+      <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">
+        Register Now
+      </button>
+    </div>
+  </form>-->
+        <form #RegisterForm="ngForm" (ngSubmit)="register(RegisterForm.value)">
+          <div class="row">
+            <!-- Full Name Field -->
+            <div class="col-md-6 form-group mb-3">
+              <label class="form-label text-secondary">Full Name</label>
+              <input type="text" ngModel name="FullName" #fullName="ngModel"
+                     class="form-control form-control-lg border-0 shadow-sm"
+                     placeholder="Your Full Name" required />
+              <div class="text-danger small mt-1" *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+                Full Name is required.
+              </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="col-md-6 form-group mb-3">
+              <label class="form-label text-secondary">Email Address</label>
+              <input type="email" ngModel name="Email" #email="ngModel"
+                     class="form-control form-control-lg border-0 shadow-sm"
+                     placeholder="Your Email" required />
+              <div class="text-danger small mt-1" *ngIf="email.invalid && (email.dirty || email.touched)">
+                Please enter a valid email.
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone Number Field -->
+          <div class="form-group mb-3">
+            <label class="form-label text-secondary">Phone Number</label>
+            <input type="number" ngModel name="PhoneNumber" #phone="ngModel"
+                   class="form-control form-control-lg border-0 shadow-sm"
+                   placeholder="Your Phone Number" required />
+            <div class="text-danger small mt-1" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+              Phone Number is required.
+            </div>
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-group mb-4">
+            <label class="form-label text-secondary">Password</label>
+            <input type="password" ngModel name="PasswordHash" #password="ngModel"
+                   class="form-control form-control-lg border-0 shadow-sm"
+                   placeholder="Create a Password" required minlength="6" />
+            <div class="text-danger small mt-1" *ngIf="password.invalid && (password.dirty || password.touched)">
+              Password must be at least 6 characters.
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">
+              Register Now
+            </button>
           </div>
         </form>
       </div>
