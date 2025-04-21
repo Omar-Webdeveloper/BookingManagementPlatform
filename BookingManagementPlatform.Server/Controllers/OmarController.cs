@@ -27,5 +27,17 @@ namespace BookingManagementPlatform.Server.Controllers
             return Ok(userInfo);
         }
 
+        [HttpPut("UpdateUserInfo/{Email}")]
+        public IActionResult UpdateUserInfo(string Email, [FromBody] UserEditProfileDto userUpdateDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var result = DataBase.UpdateUserInfo(Email, userUpdateDto);
+            if (result)
+                return Ok("User info updated successfully");
+            else
+                return NotFound("User not found");
+        }
+
     }
 }

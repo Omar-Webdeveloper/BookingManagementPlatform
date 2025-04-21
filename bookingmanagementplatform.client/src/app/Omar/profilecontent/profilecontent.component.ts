@@ -16,7 +16,6 @@ export class ProfilecontentComponent {
     this.fetchProfile();
   }
   fetchProfile(): void {
-    debugger
     this.profileService.Get_User_INfo(this.user_email).subscribe({
       next: res => {
         this.profile = res; // Store profile data

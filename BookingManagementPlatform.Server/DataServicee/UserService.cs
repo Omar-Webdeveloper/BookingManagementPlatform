@@ -33,7 +33,9 @@ namespace BookingManagementPlatform.Server.UserServicee
                 FullName = dto.FullName,
                 Email = dto.Email,
                 PasswordHash = hashedPwd,
-                PhoneNumber = dto.PhoneNumber
+                PhoneNumber = dto.PhoneNumber,
+                Image = "https://th.bing.com/th/id/OIP.3QFyrNxwWam0ZopJXZZhaAHaHa?w=183&h=183&c=7&r=0&o=5&pid=1.7",
+                Role = "User"
             };
 
             _context.Users.Add(user);
