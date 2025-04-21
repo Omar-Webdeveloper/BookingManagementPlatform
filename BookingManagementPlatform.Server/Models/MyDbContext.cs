@@ -185,8 +185,8 @@ public partial class MyDbContext : DbContext
         });
 
             OnModelCreatingPartial(modelBuilder);
-        });
-    }
+        }
+ 
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
