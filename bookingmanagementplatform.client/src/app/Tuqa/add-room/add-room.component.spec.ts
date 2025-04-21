@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TuqaTestCompComponent } from './tuqa-test-comp.component';
+import { AddRoomComponent } from './add-room.component';
 
-describe('TuqaTestCompComponent', () => {
-  let component: TuqaTestCompComponent;
-  let fixture: ComponentFixture<TuqaTestCompComponent>;
+describe('AddRoomComponent', () => {
+  let component: AddRoomComponent;
+  let fixture: ComponentFixture<AddRoomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TuqaTestCompComponent]
+      declarations: [AddRoomComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TuqaTestCompComponent);
+    fixture = TestBed.createComponent(AddRoomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -48,9 +48,7 @@ namespace BookingManagementPlatform.Server.UserServicee
             if (user == null || !BCrypt.Net.BCrypt.Verify(dto.PasswordHash, user.PasswordHash))
                 return null;
             // Save user ID in the session
-            _httpContextAccessor.HttpContext.Session.SetInt32("UserID", user.UserId);
 
-            var userId = _httpContextAccessor.HttpContext.Session.GetInt32("UserID");
             return "valid-login";
         }
 
@@ -134,6 +132,118 @@ namespace BookingManagementPlatform.Server.UserServicee
             return payload.Email;
         }
 
+        //==================== start of hala services ====================================================
+
+
+        public List<User> getAllusers()
+        {
+            var user = _context.Users.ToList();
+            return user;
+        }
+
+        public List<Booking> getAllBooking()
+        {
+            var book = _context.Bookings.ToList();
+            return book;
+        }
+
+
+        public Booking AddBooking(int userId, BookingByID bookingDto)
+        {
+            var booking = new Booking
+            {
+                UserId = userId,
+                RoomId = bookingDto.RoomId,
+                Status = "Processing",
+                BookingStartDate = bookingDto.BookingStartDate,
+                BookingStartTime = bookingDto.BookingStartTime,
+                BookingEndDate = bookingDto.BookingEndDate,
+                BookingEndTime = bookingDto.BookingEndTime
+            };
+
+            _context.Bookings.Add(booking);
+            _context.SaveChanges();
+
+            return booking;
+        }
+
+
+        public List<Room> GetAllRooms()
+        {
+            var roomss = _context.Rooms.ToList();
+            return roomss;
+        }
+
+        public List<RoomsCategory> GetAllRoomsCategories()
+        {
+            var roomsCategories = _context.RoomsCategories.ToList();
+            return roomsCategories;
+        }
+
+        public List<Booking> getallbookings(int UserId)
+        {
+            var bookings = _context.Bookings
+                .Where(b => b.UserId == UserId)
+                .Include(b => b.Room) // عشان يجيب معلومات الغرفة كمان
+                .ToList();
+
+            return bookings;
+        }
+
+        public List<Room> getRoomByID(int RoomID)
+        {
+            //var userID = _context.Rooms.FirstOrDefault(b => b.RoomId == RoomID);
+            var rooms = _context.Rooms
+                .Where(b => b.RoomId == RoomID)
+                .ToList();
+            return rooms;
+        }
+
+
+        public bool IsRoomAvailable(int roomId, DateTime startDateTime, DateTime endDateTime)
+        {
+            var startDate = DateOnly.FromDateTime(startDateTime);
+            var endDate = DateOnly.FromDateTime(endDateTime);
+            var startTime = TimeOnly.FromDateTime(startDateTime);
+            var endTime = TimeOnly.FromDateTime(endDateTime);
+
+            var hasConflict = _context.Bookings.Any(b =>
+                b.RoomId == roomId &&
+                b.Status != "Cancelled" &&
+                b.BookingStartDate.HasValue &&
+                b.BookingEndDate.HasValue &&
+                b.BookingStartTime.HasValue &&
+                b.BookingEndTime.HasValue &&
+                (
+                    // Check if booking overlaps
+                    (b.BookingStartDate.Value < endDate ||
+                    (b.BookingStartDate.Value == endDate && b.BookingStartTime.Value <= endTime)) &&
+
+                    (b.BookingEndDate.Value > startDate ||
+                    (b.BookingEndDate.Value == startDate && b.BookingEndTime.Value >= startTime))
+                )
+            );
+
+            return !hasConflict;
+        }
+
+        public Booking getBookById(int BookID)
+        {
+            var book = _context.Bookings.FirstOrDefault(b => b.BookingId == BookID);
+            return book;
+        }
+
+        public void CancelBooking(int bookingId)
+        {
+            var booking = _context.Bookings.FirstOrDefault(b => b.BookingId == bookingId);
+            if (booking != null)
+            {
+                booking.Status = "Cancelled";
+                _context.SaveChanges();
+            }
+        }
+
+        //==================== End of hala services ====================================================
 
     }
 

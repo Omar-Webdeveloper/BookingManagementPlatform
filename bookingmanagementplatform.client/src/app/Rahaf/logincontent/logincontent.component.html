@@ -1,4 +1,46 @@
 <!-- Login Form Start -->
+<!--<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="bg-light p-4 shadow rounded">
+        <h4 class="mb-4 text-center">Login</h4>
+        <form #LoginForm="ngForm" (ngSubmit)="login(LoginForm.value)">
+          <div class="form-group mb-3">
+            <label for="loginEmail">Email address</label>
+            <input type="email" ngModel name="Email" placeholder="Email" required>
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="loginPassword">Password</label>
+            <input type="password" ngModel name="PasswordHash" placeholder="Password" required>
+          </div>-->
+
+          <!-- Forgot Password Link -->
+          <!--<div class="text-end mb-4">
+            <a href="/forgot-password" class="text-decoration-none small">Forgot Password?</a>
+          </div>-->
+
+          <!-- Regular Login -->
+          <!--<div class="d-grid mb-3">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>-->
+
+          <!-- OR Divider -->
+          <!--<div class="text-center text-muted mb-3">or</div>-->
+
+          <!-- Google Login -->
+          <!--<div class="d-grid">
+            <button type="button" class="btn btn-outline-danger" (click)="loginWithGoogle()">
+              <i class="fab fa-google me-2"></i> Login with Google
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- Login Form End -->
+<!-- Login Form Start -->
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -7,22 +49,22 @@
         <form #LoginForm="ngForm" (ngSubmit)="login(LoginForm.value)">
           <div class="form-group mb-3">
             <label for="loginEmail">Email address</label>
-            <input type="email" ngModel name="Email" placeholder="Email" required >
+            <input type="email" ngModel name="Email" class="form-control" placeholder="Email" required>
           </div>
 
           <div class="form-group mb-2">
             <label for="loginPassword">Password</label>
-            <input type="password" ngModel name="PasswordHash" placeholder="Password" required >
+            <input type="password" ngModel name="PasswordHash" class="form-control" placeholder="Password" required>
           </div>
 
           <!-- Forgot Password Link -->
           <div class="text-end mb-4">
-            <a href="/forgot-password" class="text-decoration-none small">Forgot Password?</a>
+            <a routerLink="/forgot-password" class="text-decoration-none small">Forgot Password?</a>
           </div>
 
           <!-- Regular Login -->
           <div class="d-grid mb-3">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">Login</button>
           </div>
 
           <!-- OR Divider -->
@@ -30,7 +72,7 @@
 
           <!-- Google Login -->
           <div class="d-grid">
-            <button type="button" class="btn btn-outline-danger" (click)="loginWithGoogle()">
+            <button type="button" class="btn btn-danger btn-lg rounded-pill shadow-sm" (click)="loginWithGoogle()">
               <i class="fab fa-google me-2"></i> Login with Google
             </button>
           </div>
@@ -40,8 +82,3 @@
   </div>
 </div>
 <!-- Login Form End -->
-
-
-
-
-

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="custom-card p-5">
+        <h2 class="text-center mb-4" style="color: #6C63FF;">Edit Category</h2>
+
+        <form #Edit="ngForm" (ngSubmit)="EditCategory(Category)" autocomplete="off">
+          <div class="mb-4">
+            <label class="form-label">Category Name</label>
+            <input type="text" class="form-control custom-input" name="CategoryName" [(ngModel)]="Category.CategoryName" required placeholder="e.g., VIP Lounges">
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control custom-input" name="Description" [(ngModel)]="Category.Description" placeholder="Brief description of the category">
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Service Image URL</label>
+            <input type="text" class="form-control custom-input" name="Image" [(ngModel)]="Category.Image" placeholder="e.g., https://example.com/image.jpg">
+          </div>
+
+          <div class="d-flex justify-content-center mt-4 gap-3">
+            <button type="submit" class="btn custom-btn px-4">Save Changes</button>
+            <a class="btn btn-outline-dark px-4" routerLink="/AdminDashBoard/AllCategories">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
