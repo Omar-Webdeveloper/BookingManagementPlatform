@@ -31,6 +31,7 @@ public partial class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-T6EH1VU;Database=book;Trusted_Connection=True;TrustServerCertificate=True;");
         => optionsBuilder.UseSqlServer("Server=ANAS;Database=book;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -47,6 +48,10 @@ public partial class MyDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
+            entity.HasOne(d => d.Room).WithMany(p => p.Bookings)
+                .HasForeignKey(d => d.RoomId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK__Bookings__RoomId__4316F928");
             modelBuilder.Entity<Booking>(entity =>
             {
                 entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AED71304FDD");
@@ -66,6 +71,11 @@ public partial class MyDbContext : DbContext
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK__Bookings__RoomId__52593CB8");
 
+            entity.HasOne(d => d.User).WithMany(p => p.Bookings)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK__Bookings__UserId__4222D4EF");
+        });
 
                 entity.HasOne(d => d.User).WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.UserId)
@@ -74,6 +84,9 @@ public partial class MyDbContext : DbContext
 
             });
 
+        modelBuilder.Entity<ContactUsMessage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC077C3D891A");
             modelBuilder.Entity<ContactUsMessage>(entity =>
             {
                 entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC077C3D891A");
@@ -113,6 +126,9 @@ public partial class MyDbContext : DbContext
                     .HasConstraintName("FK__Payment__booking__4BAC3F29");
             });
 
+        modelBuilder.Entity<Review>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Review__3213E83F75C26FD1");
             modelBuilder.Entity<Payment>(entity =>
             {
                 entity.HasKey(e => e.Id).HasName("PK__Payment__3213E83F59A8C6C7");
@@ -156,6 +172,11 @@ public partial class MyDbContext : DbContext
                     .IsUnicode(false)
                     .HasColumnName("review");
 
+            entity.HasOne(d => d.Booking).WithMany(p => p.Reviews)
+                .HasForeignKey(d => d.BookingId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK__Review__booking___45F365D3");
+        });
                 entity.HasOne(d => d.Booking).WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.BookingId)
                     .OnDelete(DeleteBehavior.SetNull)
@@ -163,11 +184,46 @@ public partial class MyDbContext : DbContext
 
             });
 
+        modelBuilder.Entity<Room>(entity =>
+        {
+            entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939393388E4");
             modelBuilder.Entity<Room>(entity =>
             {
                 entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939393388E4");
                 entity.HasKey(e => e.RoomId).HasName("PK__Rooms__328639392DD822E4");
 
+            entity.Property(e => e.Capacity).HasColumnName("capacity");
+            entity.Property(e => e.Description).HasMaxLength(255);
+            entity.Property(e => e.Lighting)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("lighting");
+            entity.Property(e => e.Location)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("location");
+            entity.Property(e => e.MusicLevel)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("music_level");
+            entity.Property(e => e.Seating)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("seating");
+            entity.Property(e => e.ServiceImage)
+                .HasMaxLength(200)
+                .IsUnicode(false);
+            entity.Property(e => e.ServiceName).HasMaxLength(100);
+            entity.Property(e => e.ViewLook)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("view_Look");
+
+            entity.HasOne(d => d.Category).WithMany(p => p.Rooms)
+                .HasForeignKey(d => d.CategoryId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK__Rooms__CategoryI__3C69FB99");
+        });
                 entity.Property(e => e.Capacity).HasColumnName("capacity");
                 entity.Property(e => e.Description).HasMaxLength(255);
                 entity.Property(e => e.Lighting)
@@ -209,6 +265,9 @@ public partial class MyDbContext : DbContext
 
             });
 
+        modelBuilder.Entity<RoomsCategory>(entity =>
+        {
+            entity.HasKey(e => e.CategoryId).HasName("PK__RoomsCat__19093A0B267578C1");
             modelBuilder.Entity<RoomsCategory>(entity =>
             {
                 entity.HasKey(e => e.CategoryId).HasName("PK__RoomsCat__19093A0B267578C1");
@@ -224,11 +283,15 @@ public partial class MyDbContext : DbContext
                     .HasColumnName("image");
             });
 
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C236ABE94");
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C236ABE94");
                 entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C0A1ED881");
 
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534671698E0").IsUnique();
                 entity.HasIndex(e => e.Email, "UQ__Users__A9D10534671698E0").IsUnique();
                 entity.HasIndex(e => e.Email, "UQ__Users__A9D105345ECBEAF8").IsUnique();
 

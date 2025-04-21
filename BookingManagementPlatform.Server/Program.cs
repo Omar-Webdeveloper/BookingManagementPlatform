@@ -1,5 +1,5 @@
 using BookingManagementPlatform.Server.ToqaIDataService;
-using BookingManagementPlatform.Server.ToqaDataService;
+//using BookingManagementPlatform.Server.ToqaDataService;
 using BookingManagementPlatform.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using BookingManagementPlatform.Server.IDataSerivcee;
@@ -13,54 +13,56 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<MyDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+//builder.Services.AddDbContext<MyDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
-builder.Services.AddScoped<TIDataService, TDataService>();
+//builder.Services.AddScoped<TIDataService, TDataService>();
 
-builder.Services.AddScoped<IANASDataSER, ANASDataSER>();
+//builder.Services.AddScoped<IANASDataSER, ANASDataSER>();
 
 
 //CORS
+//builder.Services.AddCors(
 
 
 
-builder.Services.AddCors(
-    options => options.AddPolicy(
-        "Develop", options => 
-        {
-            options.AllowAnyOrigin(); 
-            options.AllowAnyMethod();
-            options.AllowAnyHeader();
-        }
-        )
-    );
-
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.PropertyNamingPolicy = null;
-    });
+//builder.Services.AddCors(
+//    options => options.AddPolicy(
+//        "Develop", options => 
+//        {
+//            options.AllowAnyOrigin(); 
+//            options.AllowAnyMethod();
+//            options.AllowAnyHeader();
+//        }
+//        )
+//    ));
 
 
-var app = builder.Build();
+//builder.Services.AddControllers()
+//    .AddJsonOptions(options =>
+//    {
+//        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+//    });
 
-app.UseDefaultFiles();
-app.UseStaticFiles();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//var app = builder.Build();
 
-app.UseHttpsRedirection();
-app.UseCors("Develop");
-app.UseAuthorization();
+//app.UseDefaultFiles();
+//app.UseStaticFiles();
 
-app.MapControllers();
+//// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
 
-app.MapFallbackToFile("/index.html");
+//app.UseHttpsRedirection();
+//app.UseCors("Develop");
+//app.UseAuthorization();
 
-app.Run();
+//app.MapControllers();
+
+//app.MapFallbackToFile("/index.html");
+
+//app.Run();
