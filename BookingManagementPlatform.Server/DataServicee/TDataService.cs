@@ -1,9 +1,9 @@
-﻿using BookingManagementPlatform.Server.Models;
-using BookingManagementPlatform.Server.Models.ToqaDto;
-using BookingManagementPlatform.Server.ToqaIDataService;
+﻿using BookingManagementPlatform.Server.DTOs;
+using BookingManagementPlatform.Server.IDataSerivcee;
+using BookingManagementPlatform.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookingManagementPlatform.Server.ToqaDataService
+namespace BookingManagementPlatform.Server.DataServicee
 {
     public class TDataService : TIDataService
     {
@@ -56,7 +56,8 @@ namespace BookingManagementPlatform.Server.ToqaDataService
 
 
         public bool UpdateRoom(int id, RoomDto dto)
-        { var ExistedRoom = _db.Rooms.Find(id);
+        {
+            var ExistedRoom = _db.Rooms.Find(id);
             if (ExistedRoom != null)
             {
                 ExistedRoom.ServiceName = dto.ServiceName;
@@ -132,19 +133,13 @@ namespace BookingManagementPlatform.Server.ToqaDataService
         }
 
         public bool UpdateRoomCategory(int id, [FromForm] CategoryDto dto)
-        { 
-            
+        {
             var ExistedRoomCategory = _db.RoomsCategories.Find(id);
             if (ExistedRoomCategory != null)
             {
                 ExistedRoomCategory.CategoryName = dto.CategoryName;
                 ExistedRoomCategory.Description = dto.Description;
                 ExistedRoomCategory.Image = dto.Image;
-
-                _db.RoomsCategories.Update(ExistedRoomCategory);
-                _db.SaveChanges();
-                return true;
-
             }
             return false;
         }

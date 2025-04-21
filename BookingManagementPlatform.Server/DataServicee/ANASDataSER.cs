@@ -44,7 +44,7 @@ namespace BookingManagementPlatform.Server.DataServicee
             var Message = _dbContext.ContactUsMessages.ToList();
 
             return Message;
-            
+
         }
 
         public bool SendContactMessage(ContactUsMessageDTO message)

@@ -3,7 +3,7 @@ using BookingManagementPlatform.Server.Models;
 
 namespace BookingManagementPlatform.Server.DataServicee
 {
-    public class DataServiceJana:IDataServiceJana
+    public class DataServiceJana : IDataServiceJana
     {
         private readonly MyDbContext _context;
         public DataServiceJana(MyDbContext context)

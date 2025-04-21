@@ -29,6 +29,7 @@ import { AdminDashBoredComponent } from './Admin/admin-dash-bored/admin-dash-bor
 
 const routes: Routes = [
   { path: '', component: HomepagecontentComponent },
+  { path: 'Home', component: HomepagecontentComponent },
   { path: 'About_US', component: AboutuscontentComponent },
   { path: 'Contact_US', component: ContactUScontentComponent },
   { path: 'Loginnn', component: LogincontentComponent },
@@ -41,9 +42,7 @@ const routes: Routes = [
   { path: 'BookingPayment', component: BookingPaymentcontentComponent },
   { path: 'AllRoomsCategories', component: ShowAllRoomsCategoriesComponent },
   { path: 'AllRoomsForOneCategory', component: ShowAllRoomsForOneCategoryComponent },
-  { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: "selectedRoom/:id", component: RoomDetailsComponent },
-  { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: 'VerifyCode', component: VerifyCodeComponent },
   { path: 'ForgotPassword', component: ForgotPasswordComponent },
   
