@@ -36,6 +36,8 @@ const routes: Routes = [
   { path: 'AdminDashBoard', component: AboutuscontentComponent },
   { path: 'VerifyCode', component: VerifyCodeComponent },
   { path: 'ForgotPassword', component: ForgotPasswordComponent },
+  { path: 'bookinghistorycontect/:id', component: BookinghistorycontectComponent },
+
 
 ];
 
