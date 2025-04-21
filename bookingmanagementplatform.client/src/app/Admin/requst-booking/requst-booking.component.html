@@ -26,23 +26,23 @@
       </thead>
       <tbody>
         <tr *ngFor="let booking of dataT">
-          <td>{{ booking.bookingId }}</td>
-          <td>{{ booking.userId }}</td>
-          <td>{{ booking.roomId }}</td>
+          <td>{{ booking.BookingId }}</td>
+          <td>{{ booking.UserId }}</td>
+          <td>{{ booking.RoomId }}</td>
           <td>
-            <span class="status-badge" >
-              {{ booking.status }}
+            <span class="status-badge">
+              {{ booking.Status }}
             </span>
           </td>
-          <td>{{ booking.bookingStartDate}}</td>
-          <td>{{ booking.bookingStartTime }}</td>
-          <td>{{ booking.bookingEndDate }}</td>
-          <td>{{ booking.bookingEndTime }}</td>
+          <td>{{ booking.BookingStartTime}}</td>
+          <td>{{ booking.BookingStartTime }}</td>
+          <td>{{ booking.BookingEndDate }}</td>
+          <td>{{ booking.BookingEndTime }}</td>
           <td class="actions">
-            <button class="action-btn approve" *ngIf="booking.status === 'pending'" (click)="approveBooking(booking.bookingId, 'Approve')">
+            <button class="action-btn approve" *ngIf="booking.Status === 'pending'" (click)="approveBooking(booking.BookingId, 'Approve')">
               <i class="fas fa-check"></i> Approve
             </button>
-            <button class="action-btn reject" *ngIf="booking.status === 'pending'" (click)="rejectBooking(booking.bookingId,'Reject')">
+            <button class="action-btn reject" *ngIf="booking.Status === 'pending'" (click)="rejectBooking(booking.BookingId,'Reject')">
               <i class="fas fa-times"></i> Reject
             </button>
           </td>

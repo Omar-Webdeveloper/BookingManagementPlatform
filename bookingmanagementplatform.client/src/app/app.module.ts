@@ -1,11 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnasTestCompComponent } from './Anas/anas-test-comp/anas-test-comp.component';
-import { TuqaTestCompComponent } from './Tuqa/tuqa-test-comp/tuqa-test-comp.component';
 import { NavabrComponent } from './Omar/navabr/navabr.component';
 import { FooterComponent } from './Omar/footer/footer.component';
 import { HomepagecontentComponent } from './Omar/homepagecontent/homepagecontent.component';
@@ -28,11 +26,6 @@ import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
-import { HalaTestCompComponent } from './Hala/hala-test-comp/hala-test-comp.component';
-import { JanaTestCompComponent } from './Jana/jana-test-comp/jana-test-comp.component';
-import { MohammadTestCompComponent } from './Mohammad/mohammad-test-comp/mohammad-test-comp.component';
-import { OmarTestCompComponent } from './Omar/omar-test-comp/omar-test-comp.component';
-import { RahafTestCompComponent } from './Rahaf/rahaf-test-comp/rahaf-test-comp.component';
 import { FormsModule } from '@angular/forms';
 import { AllRoomsComponent } from './Tuqa/all-rooms/all-rooms.component';
 import { AddRoomComponent } from './Tuqa/add-room/add-room.component';
@@ -51,7 +44,6 @@ import { ContactMessageComponent } from './Admin/contact-message/contact-message
   declarations: [
     AppComponent,
     AnasTestCompComponent,
-    TuqaTestCompComponent,
     NavabrComponent,
     FooterComponent,
     HomepagecontentComponent,
@@ -72,19 +64,13 @@ import { ContactMessageComponent } from './Admin/contact-message/contact-message
     ShowAllRoomsForOneCategoryComponent,
     ForgotPasswordComponent,
     VerifyCodeComponent,
-
-    HalaTestCompComponent,
-    JanaTestCompComponent,
-    MohammadTestCompComponent,
-    OmarTestCompComponent,
-    RahafTestCompComponent,
     AllRoomsComponent,
     AddRoomComponent,
     EditRoomComponent,
     AllCategoryComponent,
     AddCategoryComponent,
     EditCategoryComponent,
-    UsersComponent
+    UsersComponent,
     ShowAllRoomsForOneCategoryComponent,
     AdminDashBoredComponent,
     RequstBookingComponent,
@@ -109,7 +95,7 @@ import { ContactMessageComponent } from './Admin/contact-message/contact-message
         ]
       } as SocialAuthServiceConfig,
     }
-    AppRoutingModule, FormsModule
+    ,AppRoutingModule, FormsModule
   ],
   bootstrap: [AppComponent]
 })

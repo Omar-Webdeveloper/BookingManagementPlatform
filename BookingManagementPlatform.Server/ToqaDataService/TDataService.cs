@@ -139,6 +139,15 @@
 //                ExistedRoomCategory.CategoryName = dto.CategoryName;
 //                ExistedRoomCategory.Description = dto.Description;
 //                ExistedRoomCategory.Image = dto.Image;
+        public bool UpdateRoomCategory(int id, [FromForm] CategoryDto dto)
+        { 
+            
+            var ExistedRoomCategory = _db.RoomsCategories.Find(id);
+            if (ExistedRoomCategory != null)
+            {
+                ExistedRoomCategory.CategoryName = dto.CategoryName;
+                ExistedRoomCategory.Description = dto.Description;
+                ExistedRoomCategory.Image = dto.Image;
 
 //                _db.RoomsCategories.Update(ExistedRoomCategory);
 //                _db.SaveChanges();

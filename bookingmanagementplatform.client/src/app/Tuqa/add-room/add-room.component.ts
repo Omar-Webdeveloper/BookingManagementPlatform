@@ -54,7 +54,7 @@ export class AddRoomComponent {
           timer: 1500,
           showConfirmButton: false
         });
-        this.router.navigate(['/AllRooms']);
+        this.router.navigate(['/AdminDashBoard/AllRooms']);
       },
       error: (err) => {
         console.error("Server error:", err.error);

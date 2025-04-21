@@ -2,6 +2,8 @@ using BookingManagementPlatform.Server.ToqaIDataService;
 //using BookingManagementPlatform.Server.ToqaDataService;
 using BookingManagementPlatform.Server.Models;
 using Microsoft.EntityFrameworkCore;
+using BookingManagementPlatform.Server.IDataSerivcee;
+using BookingManagementPlatform.Server.DataServicee;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,7 @@ builder.Services.AddSwaggerGen();
 
 //CORS
 //builder.Services.AddCors(
+
 
 
 //builder.Services.AddCors(

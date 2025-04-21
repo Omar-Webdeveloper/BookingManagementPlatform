@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminDashBoredComponent } from '../admin-dash-bored/admin-dash-bored.component';
 import { UrlAdminService } from '../../AdminService/url-admin.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-requst-booking',
   standalone: false,
@@ -29,19 +29,32 @@ export class RequstBookingComponent {
 
     this._ser.UpdateRequst(id, body).subscribe(() => {
       this.getrequst();
-      alert("Booking Rejected");
-    })
 
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops!',
+        text: 'The booking has been Rejected.',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    });
   }
 
   approveBooking(id: any, data: any) {
     const body = {
-      status: data  // أو حسب اسم الخاصية المطلوبة في DTO
+      status: data
     };
+
     this._ser.UpdateRequst(id, body).subscribe(() => {
       this.getrequst();
-      alert("Booking approved");
-    })
 
+      Swal.fire({
+        icon: 'success',
+        title: 'Booking Approved!',
+        text: 'The booking has been successfully approved.',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    });
   }
 }
