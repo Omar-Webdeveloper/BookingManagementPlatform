@@ -30,6 +30,7 @@ export class LogincontentComponent {
       });
 
       this.router.navigate(['']);
+      ///end
     })
     
   }
