@@ -19,12 +19,12 @@
         <div class="mb-5">
           <div class="section-title position-relative mb-5">
             <h6 class="d-inline-block position-relative  text-uppercase pb-2"></h6>
-            <h1 class="display-4">{{ room?.serviceName }}</h1>
+            <h1 class="display-4">{{ room?.ServiceName }}</h1>
           </div>
           <div>
-            <img class="img-fluid rounded w-100 mb-4" [src]="room?.serviceImage" alt="Room Image" style="height: 669px; object-fit: cover;">
+            <img class="img-fluid rounded w-100 mb-4" [src]="room?.ServiceImage" alt="Room Image" style="height: 669px; object-fit: cover;">
           </div>
-          <p>{{ room?.description }}</p>
+          <p>{{ room?.Description }}</p>
 
         </div>
       </div>
@@ -38,22 +38,22 @@
 
           <div class="d-flex justify-content-between border-bottom px-4">
             <h6 class=" my-3"><i class="fa-solid fa-location-dot"></i></h6>
-            <h6 class=" my-3">{{ room?.location }}</h6>
+            <h6 class=" my-3">{{ room?.Location }}</h6>
           </div>
 
           <div class="d-flex justify-content-between border-bottom px-4">
             <h6 class=" my-3"><i class="fa-solid fa-users"></i></h6>
-            <h6 class=" my-3">{{ room?.capacity }} people</h6>
+            <h6 class=" my-3">{{ room?.Capacity }} people</h6>
           </div>
 
           <div class="d-flex justify-content-between border-bottom px-4">
             <h6 class=" my-3"><i class="fa-solid fa-clock"></i></h6>
-            <h6 class=" my-3">{{ room?.duration }} mins</h6>
+            <h6 class=" my-3">{{ room?.Duration }} mins</h6>
           </div>
 
           <div class="d-flex justify-content-between border-bottom px-4">
             <h6 class=" my-3"><i class="fa-solid fa-dollar-sign"></i></h6>
-            <h6 class=" my-3">{{ room?.price }} JD</h6>
+            <h6 class=" my-3">{{ room?.Price }} JD</h6>
           </div>
 
           <div class="py-3 px-4">
@@ -69,7 +69,7 @@
               <i class="fa fa-lightbulb text-dark fa-x " style="margin-bottom:23px;margin-right:9px;" ></i>
               <div>
                 <h6 class="mb-0" style="font-weight: bolder;">Lighting:</h6>
-                <small class="text-muted">{{ room?.lighting || 'N/A' }}</small>
+                <small class="text-muted">{{ room?.Lighting || 'N/A' }}</small>
                 <br />
               </div>
              
@@ -79,7 +79,7 @@
               <i class="fa fa-eye text-dark fa-x " style="margin-bottom:23px;margin-right:9px;"></i>
               <div>
                 <h6 class="mb-0" style="font-weight: bolder;">View :</h6>
-                <small class="text-muted">{{ room?.viewLook || 'N/A' }}</small>
+                <small class="text-muted">{{ room?.ViewLook || 'N/A' }}</small>
                 <br />
               </div>
              
@@ -89,7 +89,7 @@
               <i class="fa fa-music text-dark fa-x " style="margin-bottom:23px;margin-right:9px;"></i>
               <div>
                 <h6 class="mb-0" style="font-weight: bolder;">Music Level :</h6>
-                <small class="text-muted">{{ room?.musicLevel || 'N/A' }}</small>
+                <small class="text-muted">{{ room?.MusicLevel || 'N/A' }}</small>
               </div>
             </div>
 
@@ -97,7 +97,7 @@
               <i class="fa fa-couch text-dark  fa-x me-3" style="margin-bottom:23px;margin-right:9px;"></i>
               <div>
                 <h6 class="mb-0" style="font-weight:bolder;">Seating :</h6>
-                <small class="text-muted">{{ room?.seating || 'N/A' }}</small>
+                <small class="text-muted">{{ room?.Seating || 'N/A' }}</small>
               </div>
             </div>
           </div>

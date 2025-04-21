@@ -19,7 +19,7 @@ export class LogincontentComponent {
     userData.append('PasswordHash', user.PasswordHash);
 
     this.authService.login(userData).subscribe((data) => {
-      debugger
+      //debugger
       sessionStorage.setItem('Email', user.Email);
       // Display SweetAlert2 success notification
       Swal.fire({
