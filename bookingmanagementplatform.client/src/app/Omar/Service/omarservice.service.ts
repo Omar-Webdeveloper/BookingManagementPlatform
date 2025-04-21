@@ -9,6 +9,6 @@ export class OmarserviceService {
   constructor(private http: HttpClient) { }
 
   Get_User_INfo(Email: string) {
-    return this.http.get("https://localhost:7297/api/Omar/GetUserInfo?Email=" + Email);
+    return this.http.get(`https://localhost:7297/api/Omar/GetUserInfo/${Email}`);
   }
 }

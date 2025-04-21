@@ -18,32 +18,20 @@ export class LogincontentComponent {
     userData.append('Email', user.Email);
     userData.append('PasswordHash', user.PasswordHash);
 
-    this.authService.login(userData).subscribe(
-      {
-        next: res => {
-          sessionStorage.setItem('Email', res.Email);
-          // Display SweetAlert2 success notification
-          Swal.fire({
-            title: 'Login Successful!',
-            text: 'Welcome back to Edukate!',
-            icon: 'success',
-            confirmButtonText: 'Continue'
-          });
-        },
-        error: err => {
-          console.error('Login error:', err);
+    this.authService.login(userData).subscribe((data) => {
+      debugger
+      sessionStorage.setItem('Email', user.Email);
+      // Display SweetAlert2 success notification
+      Swal.fire({
+        title: 'Login Successful!',
+        text: 'Welcome back to Edukate!',
+        icon: 'success',
+        confirmButtonText: 'Continue'
+      });
 
-          // Display SweetAlert2 error notification
-          Swal.fire({
-            title: 'Login Failed!',
-            text: 'Invalid email or password. Please try again.',
-            icon: 'error',
-            confirmButtonText: 'Retry'
-
-          });
-        }
-      }
-    )
+      this.router.navigate(['']);
+    })
+    
   }
 
   loginWithGoogle(): void {

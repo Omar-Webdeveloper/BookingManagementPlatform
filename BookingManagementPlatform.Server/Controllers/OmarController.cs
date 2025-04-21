@@ -12,12 +12,12 @@ namespace BookingManagementPlatform.Server.Controllers
     public class OmarController : ControllerBase
     {
         private readonly IOmarService DataBase;
-        public OmarController(OmarService ser)
+        public OmarController(IOmarService ser)
         {
             DataBase = ser;
         }
 
-        [HttpGet("GetUserInfo")]
+        [HttpGet("GetUserInfo/{Email}")]
         public IActionResult GetUserInfo(string Email)
         {
             // Assuming you have a method in your DataBase class to get user info
