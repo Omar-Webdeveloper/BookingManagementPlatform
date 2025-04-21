@@ -1,0 +1,55 @@
+<div class="booking-container">
+  <div class="booking-header">
+    <h2>Booking Requests</h2>
+  </div>
+
+
+
+  <div class="no-data" *ngIf="dataT.length === 0">
+    <p>No booking requests found. Click refresh to load data.</p>
+  </div>
+
+  <div class="booking-table-container">
+    <table class="booking-table">
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>User ID</th>
+          <th>Room ID</th>
+          <th>Status</th>
+          <th>Start Date</th>
+          <th>Start Time</th>
+          <th>End Date</th>
+          <th>End Time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of dataT">
+          <td>{{ booking.BookingId }}</td>
+          <td>{{ booking.UserId }}</td>
+          <td>{{ booking.RoomId }}</td>
+          <td>
+            <span class="status-badge">
+              {{ booking.Status }}
+            </span>
+          </td>
+          <td>{{ booking.BookingStartTime}}</td>
+          <td>{{ booking.BookingStartTime }}</td>
+          <td>{{ booking.BookingEndDate }}</td>
+          <td>{{ booking.BookingEndTime }}</td>
+          <td class="actions">
+            <button class="action-btn approve" *ngIf="booking.Status === 'pending'" (click)="approveBooking(booking.BookingId, 'Approve')">
+              <i class="fas fa-check"></i> Approve
+            </button>
+            <button class="action-btn reject" *ngIf="booking.Status === 'pending'" (click)="rejectBooking(booking.BookingId,'Reject')">
+              <i class="fas fa-times"></i> Reject
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

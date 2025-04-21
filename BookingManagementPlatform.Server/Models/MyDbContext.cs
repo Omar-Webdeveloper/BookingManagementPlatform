@@ -100,7 +100,7 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__Review__3213E83F33B47A22");
 
-            entity.ToTable("Review");
+                entity.ToTable("Review");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BookingId).HasColumnName("booking_id");
@@ -184,7 +184,8 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Role).HasMaxLength(50);
         });
 
-        OnModelCreatingPartial(modelBuilder);
+            OnModelCreatingPartial(modelBuilder);
+        });
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

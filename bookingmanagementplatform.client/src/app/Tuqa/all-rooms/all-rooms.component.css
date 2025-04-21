@@ -1,0 +1,41 @@
+.room-table {
+  border-radius: 15px;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+  .room-table th,
+  .room-table td {
+    vertical-align: middle;
+    padding: 12px 10px;
+  }
+
+  .room-table tbody tr:hover {
+    background-color: #f9f9ff;
+  }
+
+.custom-btn {
+  background-color: #6C63FF;
+  color: #fff;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+  .custom-btn:hover {
+    background-color: #5548c8;
+    transform: translateY(-2px);
+  }
+
+.btn-outline-primary,
+.btn-outline-danger {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+  .btn-outline-primary:hover {
+    background-color: #e9f1ff;
+  }
+
+  .btn-outline-danger:hover {
+    background-color: #ffecec;
+  }

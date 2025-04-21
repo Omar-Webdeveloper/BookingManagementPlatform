@@ -1,12 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnasTestCompComponent } from './Anas/anas-test-comp/anas-test-comp.component';
-import { JanaTestCompComponent } from './Jana/jana-test-comp/jana-test-comp.component';
-import { TuqaTestCompComponent } from './Tuqa/tuqa-test-comp/tuqa-test-comp.component';
 import { NavabrComponent } from './Omar/navabr/navabr.component';
 import { FooterComponent } from './Omar/footer/footer.component';
 import { HomepagecontentComponent } from './Omar/homepagecontent/homepagecontent.component';
@@ -23,13 +20,30 @@ import { BookingPaymentcontentComponent } from './Hala/booking-paymentcontent/bo
 import { ReviewRatingcontentComponent } from './Jana/review-ratingcontent/review-ratingcontent.component';
 import { ShowAllRoomsCategoriesComponent } from './Jana/show-all-rooms-categories/show-all-rooms-categories.component';
 import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-one-category/show-all-rooms-for-one-category.component';
+import { RoomDetailsComponent } from './Jana/room-details/room-details.component';
+import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
+import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { FormsModule } from '@angular/forms';
+import { AllRoomsComponent } from './Tuqa/all-rooms/all-rooms.component';
+import { AddRoomComponent } from './Tuqa/add-room/add-room.component';
+import { EditRoomComponent } from './Tuqa/edit-room/edit-room.component';
+import { AllCategoryComponent } from './Tuqa/all-category/all-category.component';
+import { AddCategoryComponent } from './Tuqa/add-category/add-category.component';
+import { EditCategoryComponent } from './Tuqa/edit-category/edit-category.component';
+import { UsersComponent } from './Tuqa/users/users.component';
+import { AdminDashBoredComponent } from './Admin/admin-dash-bored/admin-dash-bored.component';
+import { RequstBookingComponent } from './Admin/requst-booking/requst-booking.component';
+import { ContactMessageComponent } from './Admin/contact-message/contact-message.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AnasTestCompComponent,
-    JanaTestCompComponent,
-    TuqaTestCompComponent,
     NavabrComponent,
     FooterComponent,
     HomepagecontentComponent,
@@ -45,13 +59,44 @@ import { ShowAllRoomsForOneCategoryComponent } from './Jana/show-all-rooms-for-o
     BookingPaymentcontentComponent,
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
-    ShowAllRoomsForOneCategoryComponent
+    ShowAllRoomsForOneCategoryComponent,
+    RoomDetailsComponent,
+    ShowAllRoomsForOneCategoryComponent,
+    ForgotPasswordComponent,
+    VerifyCodeComponent,
+    AllRoomsComponent,
+    AddRoomComponent,
+    EditRoomComponent,
+    AllCategoryComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
+    UsersComponent,
+    ShowAllRoomsForOneCategoryComponent,
+    AdminDashBoredComponent,
+    RequstBookingComponent,
+    ContactMessageComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule,
+    ReactiveFormsModule
+  //  , SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('820022799549-l2ltlkctk8so89mifm9i1i38j5b5emqb.apps.googleusercontent.com')
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+    ,AppRoutingModule, FormsModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
