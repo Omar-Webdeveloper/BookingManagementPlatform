@@ -1,8 +1,8 @@
-﻿using BookingManagementPlatform.Server.Models;
-using BookingManagementPlatform.Server.Models.ToqaDto;
+﻿using BookingManagementPlatform.Server.DTOs;
+using BookingManagementPlatform.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookingManagementPlatform.Server.ToqaIDataService
+namespace BookingManagementPlatform.Server.IDataSerivcee
 {
     public interface TIDataService
     {
@@ -12,12 +12,12 @@ namespace BookingManagementPlatform.Server.ToqaIDataService
 
         public Room AddRoom([FromForm] RoomDto dto);
 
-        public bool UpdateRoom( int id , [FromForm] RoomDto dto);
+        public bool UpdateRoom(int id, [FromForm] RoomDto dto);
 
 
         public bool DeleteRoom(int id);
 
-        public List<RoomsCategory>  GetAllRoomsCategories();
+        public List<RoomsCategory> GetAllRoomsCategories();
 
         public RoomsCategory GetRoomCategoryByID(int id);
 

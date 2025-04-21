@@ -29,6 +29,7 @@ import { AdminDashBoredComponent } from './Admin/admin-dash-bored/admin-dash-bor
 
 const routes: Routes = [
   { path: '', component: HomepagecontentComponent },
+  { path: 'Home', component: HomepagecontentComponent },
   { path: 'About_US', component: AboutuscontentComponent },
   { path: 'Contact_US', component: ContactUScontentComponent },
   { path: 'Loginnn', component: LogincontentComponent },

@@ -1,4 +1,4 @@
-﻿namespace BookingManagementPlatform.Server.Models.ToqaDto
+﻿namespace BookingManagementPlatform.Server.DTOs
 {
     public class RoomDto
     {

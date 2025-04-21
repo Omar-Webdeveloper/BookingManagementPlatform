@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.Eventing.Reader;
+using BookingManagementPlatform.Server.DTOs;
+using BookingManagementPlatform.Server.IDataSerivcee;
 using BookingManagementPlatform.Server.Models;
-using BookingManagementPlatform.Server.Models.ToqaDto;
-using BookingManagementPlatform.Server.ToqaIDataService;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { SocialAuthService, GoogleLoginProvider, SocialUser } from '@abacritt/angularx-social-login';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-logincontent',
   standalone: false,
@@ -17,16 +18,31 @@ export class LogincontentComponent {
     userData.append('Email', user.Email);
     userData.append('PasswordHash', user.PasswordHash);
 
-    this.authService.login(userData).subscribe({
-      next: res => {
-        console.log('Login response:', res);
-        alert('Login successful!');
-      },
-      error: err => {
-        console.error('Login error:', err);
-        alert('Invalid credentials.');
+    this.authService.login(userData).subscribe(
+      {
+        next: res => {
+          // Display SweetAlert2 success notification
+          Swal.fire({
+            title: 'Login Successful!',
+            text: 'Welcome back to Edukate!',
+            icon: 'success',
+            confirmButtonText: 'Continue'
+          });
+        },
+        error: err => {
+          console.error('Login error:', err);
+
+          // Display SweetAlert2 error notification
+          Swal.fire({
+            title: 'Login Failed!',
+            text: 'Invalid email or password. Please try again.',
+            icon: 'error',
+            confirmButtonText: 'Retry'
+
+          });
+        }
       }
-    });
+    )
   }
 
   loginWithGoogle(): void {
