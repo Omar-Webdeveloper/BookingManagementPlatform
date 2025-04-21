@@ -41,14 +41,16 @@
         <a class="courses-list-item position-relative d-block overflow-hidden mb-2" [routerLink]="['/selectedRoom', room.roomId]">
           <img class="img-fluid" [src]="room.serviceImage" alt="Room Image">
           <div class="courses-text">
-            <h4 class="text-center text-white px-3">
+            <h4 class="text-center text-white px-3" >
               {{ room.serviceName }}
             </h4>
             <div class="border-top w-100 mt-3">
               <div class="d-flex flex-column p-4 text-white">
-                <span><i class="fa fa-map-marker-alt mr-2"></i> {{ room.location }}</span>
-                <span><i class="fa fa-users mr-2"></i> {{ room.capacity }} Person</span>
-                <span><i class="fa fa-dollar-sign mr-2"></i>{{ room.price }} JD</span>
+                <span ><span style="font-weight:bold;">Location:</span> {{ room.location }}</span><br />
+                <div style="display:flex; justify-content:space-between;">
+                  <span><span style="font-weight:bold;">Capacity:</span> {{ room.capacity }} Person</span>
+                  <span style="color:deepskyblue;"><span style="font-weight:bold;">Price:</span> {{ room.price }} JD</span>
+                </div>
               </div>
             </div>
           </div>

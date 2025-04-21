@@ -3,7 +3,7 @@ using BookingManagementPlatform.Server.Models;
 
 namespace BookingManagementPlatform.Server.DataServicee
 {
-    public class DataServiceJana:IDataServiceJana
+    public class DataServiceJana : IDataServiceJana
     {
         private readonly MyDbContext _context;
         public DataServiceJana(MyDbContext context)
@@ -23,6 +23,7 @@ namespace BookingManagementPlatform.Server.DataServicee
                            .Where(r => r.CategoryId == categoryId)
                            .ToList();
         }
+
         public List<Room> GetStudyRooms()
         {
             var studyRooms = _context.Rooms.ToList();
@@ -38,3 +39,4 @@ namespace BookingManagementPlatform.Server.DataServicee
 
     }
 }
+

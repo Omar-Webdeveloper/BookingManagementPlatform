@@ -34,7 +34,7 @@ namespace BookingManagementPlatform.Server.Controllers
             //return token != null ? Ok(token) : Unauthorized("Invalid credentials");
             return token != null ? Ok() : Unauthorized();
         }
-
+                
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword([FromForm] ForgotPasswordDto dto)
         {
