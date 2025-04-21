@@ -109,10 +109,14 @@ namespace BookingManagementPlatform.Server.Controllers
         public IActionResult AddBooking([FromBody] BookingByID bookingDto)
         {
             var currentUserId = 1;
-
+            bookingDto.BookingEndDate = bookingDto.BookingStartDate;
             var startDateTime = bookingDto.BookingStartDate.Value.ToDateTime(bookingDto.BookingStartTime ?? TimeOnly.MinValue);
             var endDateTime = bookingDto.BookingEndDate.Value.ToDateTime(bookingDto.BookingEndTime ?? TimeOnly.MinValue);
-
+           
+            //if (startDateTime >= endDateTime)
+            //{
+            //    return BadRequest("End datetime must be after start datetime.");
+            //}
             var bookingDuration = endDateTime - startDateTime;
             var roomId = bookingDto.RoomId;
 
@@ -122,10 +126,10 @@ namespace BookingManagementPlatform.Server.Controllers
                 return BadRequest("Room not found.");
             }
 
-            if (startDateTime >= endDateTime)
-            {
-                return BadRequest("End datetime must be after start datetime.");
-            }
+            //if (startDateTime >= endDateTime)
+            //{
+            //    return BadRequest("End datetime must be after start datetime.");
+            //}
 
             var today = DateOnly.FromDateTime(DateTime.Now);
             if (bookingDto.BookingStartDate.Value < today)
@@ -133,10 +137,14 @@ namespace BookingManagementPlatform.Server.Controllers
                 return BadRequest("Start date cannot be in the past.");
             }
 
-            if (bookingDuration.TotalHours < 2)
-            {
-                return BadRequest("Booking duration must be at least 2 hours.");
-            }
+            //if(bookingDuration.TotalHours  < 0)
+            //{
+            //    bookingDuration.TotalHours = (-1 * (bookingDuration.TotalHours));
+            //}
+            //if (bookingDuration.TotalHours < 2)
+            //{
+            //    return BadRequest("Booking duration must be at least 2 hours.");
+            //}
 
             bool roomNotAvailable = !_dataServiceServiceService.IsRoomAvailable(roomId, startDateTime, endDateTime);
             if (roomNotAvailable)

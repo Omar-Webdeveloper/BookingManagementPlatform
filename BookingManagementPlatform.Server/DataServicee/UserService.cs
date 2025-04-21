@@ -157,7 +157,7 @@ namespace BookingManagementPlatform.Server.UserServicee
                 Status = "Processing",
                 BookingStartDate = bookingDto.BookingStartDate,
                 BookingStartTime = bookingDto.BookingStartTime,
-                BookingEndDate = bookingDto.BookingEndDate,
+                //BookingEndDate = bookingDto.BookingStartDate,
                 BookingEndTime = bookingDto.BookingEndTime
             };
 

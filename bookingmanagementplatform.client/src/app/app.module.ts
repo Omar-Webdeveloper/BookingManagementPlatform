@@ -24,6 +24,9 @@ import { RoomDetailsComponent } from './Jana/room-details/room-details.component
 import { ForgotPasswordComponent } from './Rahaf/forgot-password/forgot-password.component';
 import { VerifyCodeComponent } from './Rahaf/verify-code/verify-code.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { BookingCancelcontentComponent } from './Hala/BookingCancelcontent/booking-cancelcontent/booking-cancelcontent.component';
 //import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 //import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { FormsModule } from '@angular/forms';
@@ -66,6 +69,8 @@ import { ContactMessageComponent } from './Admin/contact-message/contact-message
     ShowAllRoomsForOneCategoryComponent,
     ForgotPasswordComponent,
     VerifyCodeComponent,
+    BookingCancelcontentComponent,
+
     AllRoomsComponent,
     AddRoomComponent,
     EditRoomComponent,
