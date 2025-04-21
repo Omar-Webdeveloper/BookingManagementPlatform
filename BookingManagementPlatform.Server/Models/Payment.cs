@@ -9,8 +9,6 @@ public partial class Payment
 
     public int? BookingId { get; set; }
 
-    public int? Amount { get; set; }
-
     public string? PaymentMethod { get; set; }
 
     public string? Cardnumber { get; set; }
