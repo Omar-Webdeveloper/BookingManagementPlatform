@@ -50,9 +50,8 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     ReviewRatingcontentComponent,
     ShowAllRoomsCategoriesComponent,
     ShowAllRoomsForOneCategoryComponent,
-    RoomDetailsComponent
-    ShowAllRoomsForOneCategoryComponent,
-    ForgotPasswordComponent,
+    RoomDetailsComponent,
+   ForgotPasswordComponent,
     VerifyCodeComponent,
 
   ],
