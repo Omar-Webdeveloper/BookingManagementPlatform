@@ -2,6 +2,7 @@
 using BookingManagementPlatform.Server.IDataSerivcee;
 using BookingManagementPlatform.Server.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookingManagementPlatform.Server.DataServicee
 {
@@ -38,7 +39,6 @@ namespace BookingManagementPlatform.Server.DataServicee
             }
         }
 
-            return Message;
 
         public List<ContactUsMessage> MessageContact()
         {
@@ -47,5 +47,27 @@ namespace BookingManagementPlatform.Server.DataServicee
             return Message;
 
         }
+        public bool SendContactMessage(ContactUsMessageDTO message)
+        {
+            if (message == null)
+            { return false; }
+
+
+            // Map DTO to the actual entity
+            var myMessage = new ContactUsMessage
+            {
+                Title = message.Title,
+                Message = message.Message,
+                Email = message.Email,
+                ClinetName = message.ClinetName
+            };
+            _dbContext.ContactUsMessages.Add(myMessage);
+            _dbContext.SaveChanges();
+
+            return true;
+
+
+        }
+
     }
 }

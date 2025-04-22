@@ -140,8 +140,13 @@ namespace BookingManagementPlatform.Server.DataServicee
                 ExistedRoomCategory.CategoryName = dto.CategoryName;
                 ExistedRoomCategory.Description = dto.Description;
                 ExistedRoomCategory.Image = dto.Image;
+
+                _db.RoomsCategories.Update(ExistedRoomCategory);
+                _db.SaveChanges();
+                return true;
+
             }
-            return false;
+            return false  ;  
         }
 
         public bool DeleteRoomCategory(int id)

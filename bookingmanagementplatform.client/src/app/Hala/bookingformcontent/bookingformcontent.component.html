@@ -15,7 +15,7 @@
           <label for="roomId">Room</label>
           <select formControlName="roomId" class="form-control" id="roomId" required (change)="getRoomId($event)">
             <option value="" disabled selected>Select a Room</option>
-            <option *ngFor="let room of rooms" [value]="room.id">{{ room.serviceName }}</option>
+            <option *ngFor="let room of rooms" [value]="room.id">{{ room.ServiceName }}</option>
           </select>
         </div>
 

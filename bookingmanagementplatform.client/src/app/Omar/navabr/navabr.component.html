@@ -1,40 +1,44 @@
-    <!-- Navbar Start -->
-<div class="container-fluid p-0" *ngIf="isAdmin == 'Empty' ">
+<div class="container-fluid p-0" *ngIf="email !== 'Admin@gmail.com'">
   <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
     <a routerLink="/Home" class="navbar-brand ml-lg-3">
-      <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>Edukate</h1>
+      <h1 class="m-0 text-uppercase text-primary">
+        <i class="fa fa-book-reader mr-3"></i>Edukate
+      </h1>
     </a>
+
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
       <div class="navbar-nav mx-auto py-0">
         <a routerLink="/Home" class="nav-item nav-link active">Home</a>
         <a routerLink="/About_US" class="nav-item nav-link">About US</a>
-        <a routerLink="/AllRoomsForOneCategory" class="nav-item nav-link">Book Now</a>
-        <!--Added by hala-->
-        <button routerLink="/BookingForm" class="nav-item nav-link">Booking Form</button>
-        <button [routerLink]="['/bookinghistorycontect', 1]" class="nav-item nav-link">History</button>
-        <!--<button routerLink="/bookinghistorycontect" class="nav-item nav-link">History</button>-->
-        <!--End od Added by hala-->
-        <!--<a routerLink="/DevelopmentTeam" class="nav-item nav-link">Development Team</a>-->
-
-        <!--<a routerLink="/Testmonails" class="nav-item nav-link">Testmonails</a>-->
-
+        <!--<button [routerLink]="['/bookinghistorycontect', 1]" class="nav-item nav-link">History</button>-->
         <a routerLink="/Contact_US" class="nav-item nav-link">Contact US</a>
+
+        <!-- Join Us Dropdown -->
         <div class="nav-item dropdown">
-          <a routerLink="/Login" class="nav-link dropdown-toggle" data-toggle="dropdown">Join Us</a>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown">Join Us</a>
           <div class="dropdown-menu m-0">
-            <a routerLink="/Login" class="dropdown-item">Login</a>
-            <a routerLink="/Register" class="dropdown-item">Register</a>
-            <a routerLink="/Profile" class="dropdown-item">Profile</a>
-            <a routerLink="/AdminDashBoard" class="dropdown-item">Admin Dasboard</a>
-            <a routerLink="/Login" class="dropdown-item">Log Out</a>
+
+            <!-- إذا مش مسجل دخول -->
+            <ng-container *ngIf ="!isLoggedIn">
+              <a routerLink="/Login" class="dropdown-item">Login</a>
+              <a routerLink="/Register" class="dropdown-item">Register</a>
+              </ng-container>
+
+              <!-- إذا مسجل دخول -->
+              <ng-container *ngIf="isLoggedIn">
+                <a routerLink="/Profile" class="dropdown-item">Profile</a>
+                <button (click)="logout()" class="dropdown-item">Log Out</button>
+              </ng-container>
+
           </div>
         </div>
       </div>
+
       <a routerLink="/AllRoomsForOneCategory" class="btn btn-primary py-2 px-4 d-none d-lg-block">Book Now</a>
     </div>
   </nav>
 </div>
-<!-- Navbar End -->

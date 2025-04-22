@@ -33,6 +33,7 @@ export class BookinghistorycontectComponent {
   getBadgeClass(status: string): string {
     switch (status.toLowerCase()) {
       case 'pending':
+      case 'Processing':
         return 'bg-warning text-dark';
       case 'confirmed':
         return 'bg-success';

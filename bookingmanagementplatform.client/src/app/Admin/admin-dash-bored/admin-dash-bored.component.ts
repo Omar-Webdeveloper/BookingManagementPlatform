@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AdminDashBoredComponent {
 
+  logout(): void {
+    sessionStorage.clear();
+    // ممكن تضيف توجيه للصفحة الرئيسية أو صفحة تسجيل الدخول بعد تسجيل الخروج
+    window.location.href = '/login'; // عدّل الرابط حسب مسار مشروعك
+  }
+
 }

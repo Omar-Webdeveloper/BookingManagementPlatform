@@ -28,13 +28,7 @@ namespace BookingManagementPlatform.Server.UserServicee
 
             var hashedPwd = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash);
 
-            var user = new User
-            {
-                FullName = dto.FullName,
-                Email = dto.Email,
-                PasswordHash = hashedPwd,
-                PhoneNumber = dto.PhoneNumber
-            };
+
             var user = new User
             {
                 FullName = dto.FullName,
@@ -65,8 +59,7 @@ namespace BookingManagementPlatform.Server.UserServicee
             var userId = _httpContextAccessor.HttpContext.Session.GetInt32("UserID");
             return "valid-login";
         }
-            return "valid-login";
-        }
+          
 
         public async Task<bool> SendPasswordResetCodeAsync(string email)
         {
@@ -164,20 +157,7 @@ namespace BookingManagementPlatform.Server.UserServicee
         }
 
 
-        public Booking AddBooking(int userId, BookingByID bookingDto)
-        {
-            var booking = new Booking
-            {
-                //UserId = userId,
-                UserId = 14,
 
-                RoomId = bookingDto.RoomId,
-                Status = "Processing",
-                BookingStartDate = bookingDto.BookingStartDate,
-                BookingStartTime = bookingDto.BookingStartTime,
-                BookingEndDate = bookingDto.BookingEndDate,
-                BookingEndTime = bookingDto.BookingEndTime
-            };
         public Booking AddBooking(int userId, BookingByID bookingDto)
         {
             var booking = new Booking
@@ -213,7 +193,7 @@ namespace BookingManagementPlatform.Server.UserServicee
         public List<Booking> getallbookings(int UserId)
         {
             var bookings = _context.Bookings
-                .Where(b => b.UserId == 14)
+                .Where(b => b.UserId == 16)
                 .Include(b => b.Room) // عشان يجيب معلومات الغرفة كمان
                 .ToList();
 

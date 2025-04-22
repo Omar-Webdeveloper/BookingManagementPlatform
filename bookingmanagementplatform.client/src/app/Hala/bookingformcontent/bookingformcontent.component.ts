@@ -56,6 +56,8 @@ export class BookingformcontentComponent {
       this.http.post('https://localhost:7297/api/User/AddBooking', formData).subscribe({
         next: res => {
           alert('Booking added successfully!');
+          this.router.navigate(['/BookingPayment']);
+
         },
         error: err => {
           console.error('Error:', err);

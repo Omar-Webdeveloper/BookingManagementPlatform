@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './booking-paymentcontent.component.css'
 })
 export class BookingPaymentcontentComponent {
-
+  
 }

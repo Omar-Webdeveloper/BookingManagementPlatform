@@ -23,41 +23,42 @@
 
         <li>
           <a routerLink="/AdminDashBoard/RequstBooking">
-            <span>RequstBooking</span>
+            <span>Booking Requests</span>
           </a>
         </li>
         <li>
           <a routerLink="/AdminDashBoard/Contact">
-            <span>Contact</span>
+            <span>Users Feedback</span>
           </a>
         </li>
         <li>
           <a routerLink="/AdminDashBoard/AllRooms">
-            <span>AllRooms</span>
+            <span> Rooms</span>
           </a>
         </li>
-        <li>
+        <!--<li>
           <a routerLink="/AdminDashBoard/AddRoom">
             <span>AddRoom</span>
           </a>
-        </li>
+        </li>-->
         <li>
           <a routerLink="/AdminDashBoard/AllCategories">
-            <span>AllCategories</span>
+            <span>Categories</span>
           </a>
         </li>
-        <li>
+        <!--<li>
           <a routerLink="/AdminDashBoard/AddCategory">
             <span>AddCategory</span>
           </a>
-        </li>
+        </li>-->
         <li>
           <a routerLink="/AdminDashBoard/Users">
             <span>Users</span>
           </a>
         </li>
+
         <li>
-          <a routerLink="/login">
+          <a (click)="logout()" >
             <span>logout</span>
           </a>
         </li>
@@ -69,8 +70,8 @@
     <!-- Main Content -->
     <div class="main-content">
       <router-outlet></router-outlet>
+    </div>
   </div>
-
     <!--<div>-->
       <!--<div class="header">
     <label for="menu-toggle" class="menu-toggle-label">

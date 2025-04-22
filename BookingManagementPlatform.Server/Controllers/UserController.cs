@@ -3,6 +3,7 @@ using BookingManagementPlatform.Server.IDataSerivcee;
 using BookingManagementPlatform.Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingManagementPlatform.Server.Controllers
 {
@@ -108,7 +109,7 @@ namespace BookingManagementPlatform.Server.Controllers
         [HttpPost("AddBooking")]
         public IActionResult AddBooking([FromBody] BookingByID bookingDto)
         {
-            var currentUserId = 1;
+            var currentUserId = 16;
             bookingDto.BookingEndDate = bookingDto.BookingStartDate;
             var startDateTime = bookingDto.BookingStartDate.Value.ToDateTime(bookingDto.BookingStartTime ?? TimeOnly.MinValue);
             var endDateTime = bookingDto.BookingEndDate.Value.ToDateTime(bookingDto.BookingEndTime ?? TimeOnly.MinValue);
@@ -208,8 +209,19 @@ namespace BookingManagementPlatform.Server.Controllers
             return Ok("Booking has been cancelled successfully.");
         }
 
+        public class Payment
+        {
+            public int Id { get; set; }
+            public int BookingId { get; set; }
+            public string PaymentMethod { get; set; }
+            public string? CardNumber { get; set; }
+            public string? CVC { get; set; }
+            public DateTime? ExpiryDate { get; set; }
+            public decimal Amount { get; set; }
 
-
+            // 👇 Add this
+            public DateTime PaymentDate { get; set; } = DateTime.Now;
+        }
 
 
 
@@ -219,4 +231,4 @@ namespace BookingManagementPlatform.Server.Controllers
 
 
     }
-    }
+}

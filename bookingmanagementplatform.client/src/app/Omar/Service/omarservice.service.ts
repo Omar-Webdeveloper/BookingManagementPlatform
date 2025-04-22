@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class OmarserviceService {
 
+
+
+
   constructor(private http: HttpClient) { }
 
   Get_User_INfo(Email: string) {
